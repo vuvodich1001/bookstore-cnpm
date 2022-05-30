@@ -81,6 +81,7 @@ class OrderController extends BaseController {
         unset($_SESSION['voucher']);
 
         $combined = array_merge($shippingAddress, $orderFee, $orderDetail);
-        echo json_encode($combined);
+        $orderId = $this->orderModel->getOrderId($customerId);
+        echo json_encode($orderId);
     }
 }

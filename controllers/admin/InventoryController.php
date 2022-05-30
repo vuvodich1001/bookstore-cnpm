@@ -7,5 +7,6 @@ class InventoryController extends BaseController {
         $this->inventoryModel = new InventoryModel();
     }
     public function index() {
+        return $this->view('admin.inventories.show');
     }
 }

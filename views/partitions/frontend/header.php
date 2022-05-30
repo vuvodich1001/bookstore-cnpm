@@ -67,9 +67,9 @@
                             <p class="account"> <?php echo $firstName . ' ' . $lastName ?> <i class="account-icon fas fa-sort-down"></i></p>
                         </div>
                         <div class="nav-auth-body">
-                            <a href="http://localhost/mvc-php/account/order" class="btn-account">Đơn hàng của tôi</a>
-                            <a href="http://localhost/mvc-php/account/info" class="btn-account">Tài khoản của tôi</a>
-                            <a href="http://localhost/mvc-php/account/comment" class="btn-account">Nhận xét sản phẩm đã mua</a>
+                            <a href="account/order" class="btn-account">Đơn hàng của tôi</a>
+                            <a href="account/info" class="btn-account">Tài khoản của tôi</a>
+                            <a href="account/comment" class="btn-account">Nhận xét sản phẩm đã mua</a>
                             <a href="index.php?controller=auth&action=customerLogout" class="btn-account">Thoát tài khoản</a>
                         </div>
                     <?php } ?>
@@ -77,13 +77,13 @@
 
                 <div class="nav-cart">
                     <div class="nav-cart-icon">
-                        <a href="http://localhost/mvc-php/cart"><i class="fas fa-shopping-cart"></i><span>Giỏ
+                        <a href="cart"><i class="fas fa-shopping-cart"></i><span>Giỏ
                                 hàng</span></a>
                     </div>
                     <div class="nav-cart-success">
                         <p><i class="nav-cart-success-icon fas fa-check-circle"></i> Thêm vào vào giỏ hàng thành công!
                         </p>
-                        <a href="http://localhost/mvc-php/cart" class="btn btn-view-cart">Xem giỏ hàng và
+                        <a href="cart" class="btn btn-view-cart">Xem giỏ hàng và
                             thanh
                             toán</a>
                         <div class="cart-close">

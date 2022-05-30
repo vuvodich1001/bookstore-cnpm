@@ -44,6 +44,7 @@ function code() {
 }
 ```
 
+```
 1 khách hàng có nhiều phiếu thu tiền
 table: Payment
 
@@ -51,3 +52,9 @@ table: Payment
 - customer_id
 - Số tiền thu
 - Số tiền nợ
+
+tồn cuối = tồn đầu + (nhập - bán) = phát sinh
+
+Tồn đầu tháng 2 = tồn cuối tháng 1
+
+```
