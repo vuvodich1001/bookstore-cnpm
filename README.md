@@ -40,6 +40,14 @@ _Contact: vunguyen.311001@gmail.com_
 
 ```javascript
 function code() {
-  console.log("Have a good day <3");
+  console.log('Have a good day <3');
 }
 ```
+
+1 khách hàng có nhiều phiếu thu tiền
+table: Payment
+
+- payment_id
+- customer_id
+- Số tiền thu
+- Số tiền nợ
