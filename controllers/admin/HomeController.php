@@ -21,7 +21,7 @@ class HomeController extends BaseController {
         $this->userId = $_SESSION['user']['user_id'];
     }
 
-    public function index() {
+    public function index($inventoryReports = [], $debtReports = []) {
         $roles = $this->getUserModel()->getAllRoleByUserId($this->userId);
         $orders = $this->orderModel->getAll(['*'], ['order_date desc'], 5);
         $reviews = $this->reviewModel->getAll(['*'], ['review_time desc'], 5);
@@ -62,46 +62,45 @@ class HomeController extends BaseController {
             'roles' => $roles,
             'statistics' => $statistics,
             'notifications' => $notifications,
-            'textColors' => $textColors
+            'textColors' => $textColors,
+            'inventoryReports' => isset($inventoryReports) ? $inventoryReports : [],
+            'debtReports' => isset($debtReports) ? $debtReports : [],
         ]);
     }
 
     public function reportInventoryByDate() {
-        $date = $_POST['date'];
+        $date = $_POST['date2'];
         $data = explode('-', $date);
         $year = $data[0];
         $month = $data[1];
+        $books = $this->bookModel->getAll();
 
-        // Inventory Report
-        $inventoryReport = [];
+        $inventoryReports = [];
 
-        foreach ($this->bookModel->getAll(['book_id']) as $book) {
-            $saleTotal = $this->reportModel->getSaleSumByBook_IdAndMonthAndYear($book['book_id'], $month, $year); // get sale total
-            $importTotal = $this->reportModel->getImportSumByBook_IdAndMonthAndYear($book['book_id'], $month, $year); // get import total
-            $finalRemainPreviousMonth = $this->reportModel->getFinalRemainByBook_IdAndMonthAndYear($book['book_id'], $month - 1, $year); // get final remain previous month, exam: curr = 5 -> previous = 4
-
-            $inventoryReport[] = ['saleTotal' => $saleTotal, 'importTotal' => $importTotal, 'finalRemainPreviousMonth' => $finalRemainPreviousMonth];
+        foreach ($books as $book) {
+            $report = $this->reportModel->getInventoryReportByMonth($book['book_id'], $month, $year);
+            $report['title'] = $book['title'];
+            $inventoryReports[] = $report;
         }
-
-        print_r($inventoryReport);
-        die();
+        $this->index($inventoryReports);
     }
 
-    public function reportCustomerDebtByDate() {
+    public function reportDebtByDate() {
         $date = $_POST['date'];
         $data = explode('-', $date);
         $year = $data[0];
         $month = $data[1];
+        $customers = $this->customerModel->getAllDebt($month);
 
-        // Inventory Report
-        $this->inventoryReport = [];
+        $debtReports = [];
 
-        foreach ($this->customerModel->getAll(['customer_id']) as $customer) {
-            $loanSum = $this->reportModel->getLoanSumByCustomer_IdAndMonthAndYear($customer['customer_id'], $month, $year); // get sale total
-            $paymentSum = $this->reportModel->getPaymentSumByCustomer_IdAndMonthAndYear($customer['customer_id'], $month, $year); // get import total
-            $finalRemainPreviousMonth = $this->reportModel->getFinalRemainByCustomer_IdAndMonthAndYear($customer['customer_id'], $month - 1, $year); // get final remain previous month, exam: curr = 5 -> previous = 4
-
-            $this->inventoryReport[] = ['loanSum' => $loanSum, 'paymentSum' => $paymentSum, 'finalRemainPreviousMonth' => $finalRemainPreviousMonth];
+        foreach ($customers as $customer) {
+            $report = $this->reportModel->getDebtReportByMonth($customer['customer_id'], $month, $year);
+            $report['name'] = $customer['first_name'] . ' ' . $customer['last_name'];
+            $debtReports[] = $report;
         }
+
+
+        $this->index([], $debtReports);
     }
 }

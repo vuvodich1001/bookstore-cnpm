@@ -1,62 +1,84 @@
 <?php
 
 class ReportModel extends BaseModel {
-    public function getImportSumByBook_IdAndMonthAndYear($bookId, $month, $year) {
-        $sql = "select COUNT(total) as total from inventory 
-                where book_id = :bookId and MONTH(import_date) = :month and YEAR(import_date) = :year";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(['bookId' => $bookId, 'month' => $month, 'year' => $year]);
-        return $stmt->fetch()['total'];
+
+    public function getInventoryReportByMonth($bookId, $month, $year) {
+        $sql1 =  'select sum(migrate_quantity) as total from inventory 
+    where year(purchase_date) = :year and month(purchase_date) = :month 
+    and book_id = :bookId limit 1';
+        $stmt1 = $this->db->prepare($sql1);
+        $stmt1->execute(['year' => $year, 'month' => $month, 'bookId' => $bookId]);
+        $migrate = $stmt1->fetch()['total'];
+
+        $sql2 = 'select sum(quantity) as total from book_order b join order_detail o on b.order_id = o.order_id 
+    where year(b.order_date) = :year and month(b.order_date) = :month and book_id = :bookId limit 1';
+        $stmt2 = $this->db->prepare($sql2);
+        $stmt2->execute(['year' => $year, 'month' => $month, 'bookId' => $bookId]);
+        $sold = $stmt2->fetch()['total'];
+
+        $sql3 = 'select sum(migrate_quantity) as total from inventory 
+    where year(purchase_date) <= :year 
+    and month(purchase_date) < :month and book_id = :bookId limit 1';
+        $stmt3 = $this->db->prepare($sql3);
+        $stmt3->execute(['year' => $year, 'month' => $month, 'bookId' => $bookId]);
+        $totalMigrate = $stmt3->fetch()['total'];
+
+        $sql4 = 'select sum(quantity) as total from book_order b join order_detail o on b.order_id = o.order_id 
+        where year(b.order_date) <= :year and month(b.order_date) < :month and book_id = :bookId limit 1';
+        $stmt4 = $this->db->prepare($sql4);
+        $stmt4->execute(['year' => $year, 'month' => $month, 'bookId' => $bookId]);
+        $totalSold = $stmt4->fetch()['total'];
+        return [
+            'bookId' => $bookId,
+            'head' => $totalMigrate - $totalSold,
+            'growth' => $migrate - $sold,
+            'last' => ($totalMigrate - $totalSold) + ($migrate - $sold)
+        ];
     }
 
-    public function getSaleSumByBook_IdAndMonthAndYear($bookId, $month, $year) {
-        $sql = "select COUNT(od.quantity) as total from order_detail od
-                join book_order bo on bo.order_id = od.order_id
-                where od.book_id = :bookId and MONTH(bo.order_date) = :month and YEAR(bo.order_date) = :year and bo.status = 'Giao hàng thành công'";
-        $stmt = $this->db->prepare($sql);
+    public function getDebtReportByMonth($customerId, $month, $year) {
+        $sql1 =  'select sum(debt) as total
+         from book_order 
+        where year(payment_date) = :year and month(payment_date) = :month and debt > 0
+        and customer_id = :customerId 
+        group by customer_id
+        limit 1';
+        $stmt1 = $this->db->prepare($sql1);
+        $stmt1->execute(['year' => $year, 'month' => $month, 'customerId' => $customerId]);
+        $debt = $stmt1->fetch()['total'] ?? 0;
 
-        $stmt->execute(['bookId' => $bookId, 'month' => $month, 'year' => $year]);
+        $sql2 = 'select sum(paid) as paid from book_order 
+    where year(payment_date) = :year and month(payment_date) = :month and debt > 0
+    and customer_id = :customerId 
+    group by customer_id
+    limit 1';
+        $stmt2 = $this->db->prepare($sql2);
+        $stmt2->execute(['year' => $year, 'month' => $month, 'customerId' => $customerId]);
+        $paid = $stmt2->fetch()['paid'] ?? 0;
 
-        return $stmt->fetch()['total'];
-    }
+        $sql3 =  'select sum(debt) as debt from book_order 
+        where year(payment_date) <= :year and month(payment_date) < :month and debt > 0
+        and customer_id = :customerId 
+        group by customer_id
+        limit 1';
+        $stmt3 = $this->db->prepare($sql3);
+        $stmt3->execute(['year' => $year, 'month' => $month, 'customerId' => $customerId]);
+        $totalDebt = $stmt3->fetch()['debt'] ?? 0;
 
-    public function getFinalRemainByBook_IdAndMonthAndYear($bookId, $month, $year) {
-        $sql = "select final_remain from inventory_report
-                where book_id = :bookId and month = :month and year = :year";
-        $stmt = $this->db->prepare($sql);
-
-        $stmt->execute(['bookId' => $bookId, 'month' => $month, 'year' => $year]);
-
-        return $stmt->fetch()['final_remain'];
-    }
-
-    public function getFinalRemainByCustomer_IdAndMonthAndYear($customerId, $month, $year) {
-        $sql = "select final_remain from customer_debt_report
-                where customer_id = :customerId and month = :month and year = :year";
-        $stmt = $this->db->prepare($sql);
-
-        $stmt->execute(['customer_id' => $customerId, 'month' => $month, 'year' => $year]);
-
-        return $stmt->fetch()['final_remain'];
-    }
-
-    public function getLoanSumByCustomer_IdAndMonthAndYear($customerId, $month, $year) {
-        $sql = "select DISTINCT(loan_sum) from inventory_report
-                where customer_id = :customerId and month = :month and year = :year";
-        $stmt = $this->db->prepare($sql);
-
-        $stmt->execute(['customerId' => $customerId, 'month' => $month, 'year' => $year]);
-
-        return $stmt->fetch()['total'];
-    }
-
-    public function getPaymentSumByCustomer_IdAndMonthAndYear($customerId, $month, $year) {
-        $sql = "select payment from inventory_report
-                where customer_id = :customerId and month = :month and year = :year";
-        $stmt = $this->db->prepare($sql);
-
-        $stmt->execute(['customerId' => $customerId, 'month' => $month, 'year' => $year]);
-
-        return $stmt->fetch()['total'];
+        $sql4 = 'select sum(paid) as paid from book_order
+        where year(payment_date) <= :year and month(payment_date) < :month  and debt > 0
+        and customer_id = :customerId 
+        group by customer_id
+        limit 1';
+        $stmt4 = $this->db->prepare($sql4);
+        $stmt4->execute(['year' => $year, 'month' => $month, 'customerId' => $customerId]);
+        $totalPaid = $stmt4->fetch()['paid'] ?? 0;
+        // die();
+        return [
+            'customerId' => $customerId,
+            'head' => $totalDebt,
+            'growth' => $debt,
+            'last' => $totalDebt + $debt
+        ];
     }
 }

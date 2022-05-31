@@ -57,6 +57,24 @@ tồn cuối = tồn đầu + (nhập - bán) = phát sinh
 
 Tồn đầu tháng 2 = tồn cuối tháng 1
 
-Thêm số tiền còn  nợ và  đã trả vào chi tiết đơn hàng
-Tông tiền nợ vào thông tin tài khoản
+
+Tồn đầu, tồn cuối, phát sinh của tháng 5/2021
+
+* Phát sinh = số lượng nhập của cuốn sách đó trong tháng 5 - số bán của sách đó trong tháng 5
+$bookId;
+
+$sql1 =  select sum(migrate_quantity) from inventory where year(purchase_date) = 2022 and month(purchase_date) = 5 and book_id = $bookId
+=> số lượng nhập
+$sql2 = select sum(quantity) from book_order b join order_detail o on b.order_id = o.order_d where year(b.order_date) = 2022 and month(b.order_date) = 5 and book_id = $bookId
+=> số lượng bán
+
+
+* Tồn đầu của tháng 5 =  Tổng tất cả nhập của các tháng trước < 5  -  tổng bán của các tháng trước < 5
+$sql3 = select sum(migrate_quantity) from inventory where year(purchase_date) <= 2022 and month(purchase_date) < 5 and book_id = $bookId;
+=> Tổng tất cả nhập của các tháng trước < 5
+
+$sql2 = select sum(quantity) from book_order b join order_detail o on b.order_id = o.order_d where year(b.order_date) <= 2022 and month(b.order_date) < 5 and book_id = $bookId
+=> Tổng bán của các tháng trước < 5
+
+
 ```

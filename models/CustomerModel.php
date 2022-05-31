@@ -24,8 +24,22 @@ class CustomerModel extends BaseModel {
         return $this->all(self::TABLE, $select, $orderBy, $limit);
     }
 
-    public function getAllCustomerWithDebt() {
+    public function getAllDebt($month) {
         $sql = "select c.*, sum(debt) as debt from customer c join book_order b on c.customer_id = b.customer_id
+        where month(payment_date) <= :month
+        group by c.customer_id
+        having sum(debt) > 0";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['month' => $month]);
+        $customers = [];
+        while ($row = $stmt->fetch()) {
+            $customers[] = $row;
+        }
+        return $customers;
+    }
+
+    public function getAllCustomerWithDebt() {
+        $sql = "select c.*, sum(debt) as debt from customer c left join book_order b on c.customer_id = b.customer_id
         group by c.customer_id";
         $stmt = $this->db->query($sql);
         $customers = [];

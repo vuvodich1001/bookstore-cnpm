@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 30, 2022 lúc 06:29 PM
+-- Thời gian đã tạo: Th5 31, 2022 lúc 07:43 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -51,10 +51,10 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`book_id`, `category_id`, `description`, `main_image`, `price`, `title`, `author`, `create_date`, `publish_date`, `publisher`, `page`, `height`, `width`, `inch`, `current_quantity`, `enable`) VALUES
-(20, 1, '<p>Learn PHP Fast and Learn It Well. Master PHP Programming with a unique Hands-On Project<br />\n<strong>New Book by Best Selling Author Jamie Chan. Book 6 of the Learn Coding Fast Series.</strong><br />\nDo you want to learn PHP fast but are overwhelmed by all the information you find online? Or perhaps you have completed numerous PHP tutorials but are still unsure how everything works together.<br />\nThis book is for you.<br />\nYou no longer have to waste your time and money learning PHP from lengthy books, expensive online courses or fragmented PHP tutorials. This book covers all the major topics in PHP and is written in a&nbsp;<strong>concise and to the point</strong>&nbsp;manner. In addition, you&#39;ll be guided through a&nbsp;<strong>project</strong>&nbsp;at the end of the book where you get to apply the concepts learned and see how it all ties together.</p>\n\n<p>What this book offers...</p>\n\n<p><br />\n<strong>PHP for Beginners</strong><br />\nComplex concepts are broken down into simple steps to ensure that you can easily master PHP even if you have never coded before. Concepts are presented in a &quot;to-the-point&quot; style to cater to the busy individual; no fluff or unnecessary details.<br />\n<br />\n<strong>Careful selection of topics</strong><br />\n<br />\nTopics are carefully selected to give you a broad exposure to PHP. These topics include HTML form handling, security management (prevention of XSS and SQL injection), object-oriented programming, error and exception handling techniques, databases and more.<br />\n<br />\n<strong>Carefully Chosen PHP Examples</strong><br />\n<br />\nExamples are carefully chosen to illustrate all concepts. In addition, the output for all examples is provided immediately so you do not have to wait till you have access to your computer to test the examples.<br />\n&nbsp;</p>\n\n<p>How is this book different...</p>\n\n<p><br />\nThe best way to learn programming is by doing. This book includes a complete project at the end of the book where you get to build a mini-blog using PHP and MySQL.<br />\n<br />\nWorking through the project gives you a chance to see how everything works together, including how to set up your servers, create a database, connect to it, process forms, manage security issues, handle errors and exceptions and more. Completing the project will not only give you an immense sense of achievement, it&#39;ll also help you retain the knowledge you&#39;ve learned and master the language.<br />\n<br />\nAre you ready to dip your toes into the exciting world of PHP coding? This book is for you. Click the BUY button and download it now.<br />\n&nbsp;</p>\n', 'learnphp.jpg', 150000, 'Learn PHP in One Day and Learn It Well', 'Jamie Chan', '2021-12-05 17:20:47', '2021-12-16', 'Fahasa', 200, 25, 25, NULL, 0, NULL),
-(21, 1, '<p>Learning a complex new language is no easy task especially when it s an object-oriented computer programming language like Java. You might think the problem is your brain. It seems to have a mind of its own, a mind that doesn&#39;t always want to take in the dry, technical stuff you&#39;re forced to study.<br />\n<br />\nThe fact is your brain craves novelty. It&#39;s constantly searching, scanning, waiting for something unusual to happen. After all, that&#39;s the way it was built to help you stay alive. It takes all the routine, ordinary, dull stuff and filters it to the background so it won&#39;t interfere with your brain&#39;s real work--recording things that matter. How does your brain know what matters? It&#39;s like the creators of the Head First approach say, suppose you&#39;re out for a hike and a tiger jumps in front of you, what happens in your brain? Neurons fire. Emotions crank up. Chemicals surge.<br />\n<br />\nThat&#39;s how your brain knows.<br />\n<br />\nAnd that&#39;s how your brain will learn Java.&nbsp;<em>Head First Java</em>&nbsp;combines puzzles, strong visuals, mysteries, and soul-searching interviews with famous Java objects to engage you in many different ways. It&#39;s fast, it&#39;s fun, and it&#39;s effective. And, despite its playful appearance, Head First Java is serious stuff: a complete introduction to object-oriented programming and Java. You&#39;ll learn everything from the fundamentals to advanced topics, including threads, network sockets, and distributed programming with RMI. And the new. second edition focuses on Java 5.0, the latest version of the Java language and development platform. Because Java 5.0 is a major update to the platform, with deep, code-level changes, even more careful study and implementation is required. So learning the Head First way is more important than ever.<br />\n<br />\nIf you&#39;ve read a Head First book, you know what to expect--a visually rich format designed for the way your brain works. If you haven&#39;t, you&#39;re in for a treat. You&#39;ll see why people say it&#39;s unlike any other Java book you&#39;ve ever read.<br />\n<br />\nBy exploiting how your brain works,&nbsp;<em>Head First Java</em>&nbsp;compresses the time it takes to learn and retain--complex information. Its unique approach not only shows you what you need to know about Java syntax, it teaches you to think like a Java programmer. If you want to be bored, buy some other book. But if you want to understand Java, this book&#39;s for you.</p>\n', 'headfirstjava.jpg', 100000, 'Head First Java: A Brain-Friendly Guide', 'Kathy Sierra', '2021-12-05 20:06:55', '2016-01-01', 'Fahasa', 250, 25, 25, NULL, 0, NULL),
-(22, 1, '<p>The history of Python kicked off when Guido van Rossum, the founder of Python, started working on it in the late 1980s. Python is the successor of the ABC programming language. The first Python version was released back in 1991 and has only grown exponentially since then.<br />\n<br />\nIt now has a vast community that releases the latest updates regularly. Guido van Rossum is also known as the &ldquo;<strong><em>Benevolent Dictator for Life</em></strong>&rdquo;. This title was given to him by the Python community to honor him for his long-term commitment and dedication to the project and for being the project leader for such a long period.<br />\n<br />\nPython is a high-level interpreted programming language that is used throughout the world for general-purpose programming. It is an open-source programming language licensed by both the Free Software Foundation (FSF) and Open-Source Initiative (OSI). Like some other programming languages, its source code is also available under the GNU General Public License (GPL).Python 2.x, being the legacy version, was used earlier across the globe. It stopped receiving newer features and security updates after Python 2.7, so people migrated to Python version 3.x.Throughout this book, we will be focusing more on the Python 3.x version, which is the latest and is currently in active development.Before we proceed further, I would like to inform you all that the purpose of writing this book is to make your understanding of Python clearer by explaining technical terms in layman&rsquo;s language with the help of code snippets and practical examples.I also wanted to make sure that the reader does not feel bored while reading the book, so I&rsquo;ll be adding some attractive code snippets that are appealing to the eyes.</p>\n', 'python_1.jpg,python_2.jpg', 120000, 'Python Programming for Beginners', 'AMZ Publishing', '2021-12-05 20:06:55', '2016-01-01', 'Fahasa', 300, 16, 24, NULL, 0, NULL),
-(23, 1, '<p>Available at a lower price from other sellers&nbsp;that may not offer free Prime shipping.</p>\n\n<p><strong>The second edition of the best-selling Python book in the world (over 1 million copies sold!). A fast-paced, no-nonsense guide to programming in Python. Updated and thoroughly revised to reflect the latest in Python code and practices.</strong><br />\n<br />\n<em>Python Crash Course</em>&nbsp;is the world&#39;s best-selling guide to the Python programming language. This fast-paced, thorough introduction to programming with Python will have you writing programs, solving problems, and making things that work in no time.<br />\n<br />\nIn the first half of the book, you&#39;ll learn basic programming concepts, such as variables, lists, classes, and loops, and practice writing clean code with exercises for each topic. You&#39;ll also learn how to make your programs interactive and test your code safely before adding it to a project. In the second half, you&#39;ll put your new knowledge into practice with three substantial projects: a Space Invaders-inspired arcade game, a set of data visualizations with Python&#39;s handy libraries, and a simple web app you can deploy online.<br />\n<br />\nAs you work through the book, you&#39;ll learn how to:<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Use powerful Python libraries and tools, including Pygame, Matplotlib, Plotly, and Django<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Make 2D games that respond to keypresses and mouse clicks, and that increase in difficulty<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Use data to generate interactive visualizations<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Create and customize web apps and deploy them safely online<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Deal with mistakes and errors so you can solve your own programming problems<br />\n<br />\nIf you&#39;ve been thinking about digging into programming,&nbsp;<em>Python Crash Course</em>&nbsp;will get you writing real programs fast. Why wait any longer? Start your engines and code!</p>\n', 'python_crashcoure_1.jpg', 200000, 'Python CrashCoure, 2nd Edition', 'Eric Matthes', '2021-12-05 20:06:55', '2012-01-01', 'Fahasa', 1000, 16, 24, NULL, 0, NULL),
+(20, 1, '<p>Learn PHP Fast and Learn It Well. Master PHP Programming with a unique Hands-On Project<br />\n<strong>New Book by Best Selling Author Jamie Chan. Book 6 of the Learn Coding Fast Series.</strong><br />\nDo you want to learn PHP fast but are overwhelmed by all the information you find online? Or perhaps you have completed numerous PHP tutorials but are still unsure how everything works together.<br />\nThis book is for you.<br />\nYou no longer have to waste your time and money learning PHP from lengthy books, expensive online courses or fragmented PHP tutorials. This book covers all the major topics in PHP and is written in a&nbsp;<strong>concise and to the point</strong>&nbsp;manner. In addition, you&#39;ll be guided through a&nbsp;<strong>project</strong>&nbsp;at the end of the book where you get to apply the concepts learned and see how it all ties together.</p>\n\n<p>What this book offers...</p>\n\n<p><br />\n<strong>PHP for Beginners</strong><br />\nComplex concepts are broken down into simple steps to ensure that you can easily master PHP even if you have never coded before. Concepts are presented in a &quot;to-the-point&quot; style to cater to the busy individual; no fluff or unnecessary details.<br />\n<br />\n<strong>Careful selection of topics</strong><br />\n<br />\nTopics are carefully selected to give you a broad exposure to PHP. These topics include HTML form handling, security management (prevention of XSS and SQL injection), object-oriented programming, error and exception handling techniques, databases and more.<br />\n<br />\n<strong>Carefully Chosen PHP Examples</strong><br />\n<br />\nExamples are carefully chosen to illustrate all concepts. In addition, the output for all examples is provided immediately so you do not have to wait till you have access to your computer to test the examples.<br />\n&nbsp;</p>\n\n<p>How is this book different...</p>\n\n<p><br />\nThe best way to learn programming is by doing. This book includes a complete project at the end of the book where you get to build a mini-blog using PHP and MySQL.<br />\n<br />\nWorking through the project gives you a chance to see how everything works together, including how to set up your servers, create a database, connect to it, process forms, manage security issues, handle errors and exceptions and more. Completing the project will not only give you an immense sense of achievement, it&#39;ll also help you retain the knowledge you&#39;ve learned and master the language.<br />\n<br />\nAre you ready to dip your toes into the exciting world of PHP coding? This book is for you. Click the BUY button and download it now.<br />\n&nbsp;</p>\n', 'learnphp.jpg', 150000, 'Learn PHP in One Day and Learn It Well', 'Jamie Chan', '2021-12-05 17:20:47', '2021-12-16', 'Fahasa', 200, 25, 25, NULL, 470, NULL),
+(21, 1, '<p>Learning a complex new language is no easy task especially when it s an object-oriented computer programming language like Java. You might think the problem is your brain. It seems to have a mind of its own, a mind that doesn&#39;t always want to take in the dry, technical stuff you&#39;re forced to study.<br />\n<br />\nThe fact is your brain craves novelty. It&#39;s constantly searching, scanning, waiting for something unusual to happen. After all, that&#39;s the way it was built to help you stay alive. It takes all the routine, ordinary, dull stuff and filters it to the background so it won&#39;t interfere with your brain&#39;s real work--recording things that matter. How does your brain know what matters? It&#39;s like the creators of the Head First approach say, suppose you&#39;re out for a hike and a tiger jumps in front of you, what happens in your brain? Neurons fire. Emotions crank up. Chemicals surge.<br />\n<br />\nThat&#39;s how your brain knows.<br />\n<br />\nAnd that&#39;s how your brain will learn Java.&nbsp;<em>Head First Java</em>&nbsp;combines puzzles, strong visuals, mysteries, and soul-searching interviews with famous Java objects to engage you in many different ways. It&#39;s fast, it&#39;s fun, and it&#39;s effective. And, despite its playful appearance, Head First Java is serious stuff: a complete introduction to object-oriented programming and Java. You&#39;ll learn everything from the fundamentals to advanced topics, including threads, network sockets, and distributed programming with RMI. And the new. second edition focuses on Java 5.0, the latest version of the Java language and development platform. Because Java 5.0 is a major update to the platform, with deep, code-level changes, even more careful study and implementation is required. So learning the Head First way is more important than ever.<br />\n<br />\nIf you&#39;ve read a Head First book, you know what to expect--a visually rich format designed for the way your brain works. If you haven&#39;t, you&#39;re in for a treat. You&#39;ll see why people say it&#39;s unlike any other Java book you&#39;ve ever read.<br />\n<br />\nBy exploiting how your brain works,&nbsp;<em>Head First Java</em>&nbsp;compresses the time it takes to learn and retain--complex information. Its unique approach not only shows you what you need to know about Java syntax, it teaches you to think like a Java programmer. If you want to be bored, buy some other book. But if you want to understand Java, this book&#39;s for you.</p>\n', 'headfirstjava.jpg', 103950, 'Head First Java: A Brain-Friendly Guide', 'Kathy Sierra', '2021-12-05 20:06:55', '2016-01-01', 'Fahasa', 250, 25, 25, NULL, 170, NULL),
+(22, 1, '<p>The history of Python kicked off when Guido van Rossum, the founder of Python, started working on it in the late 1980s. Python is the successor of the ABC programming language. The first Python version was released back in 1991 and has only grown exponentially since then.<br />\n<br />\nIt now has a vast community that releases the latest updates regularly. Guido van Rossum is also known as the &ldquo;<strong><em>Benevolent Dictator for Life</em></strong>&rdquo;. This title was given to him by the Python community to honor him for his long-term commitment and dedication to the project and for being the project leader for such a long period.<br />\n<br />\nPython is a high-level interpreted programming language that is used throughout the world for general-purpose programming. It is an open-source programming language licensed by both the Free Software Foundation (FSF) and Open-Source Initiative (OSI). Like some other programming languages, its source code is also available under the GNU General Public License (GPL).Python 2.x, being the legacy version, was used earlier across the globe. It stopped receiving newer features and security updates after Python 2.7, so people migrated to Python version 3.x.Throughout this book, we will be focusing more on the Python 3.x version, which is the latest and is currently in active development.Before we proceed further, I would like to inform you all that the purpose of writing this book is to make your understanding of Python clearer by explaining technical terms in layman&rsquo;s language with the help of code snippets and practical examples.I also wanted to make sure that the reader does not feel bored while reading the book, so I&rsquo;ll be adding some attractive code snippets that are appealing to the eyes.</p>\n', 'python_1.jpg,python_2.jpg', 52500, 'Python Programming for Beginners', 'AMZ Publishing', '2021-12-05 20:06:55', '2016-01-01', 'Fahasa', 300, 16, 24, NULL, 240, NULL),
+(23, 1, '<p>Available at a lower price from other sellers&nbsp;that may not offer free Prime shipping.</p>\n\n<p><strong>The second edition of the best-selling Python book in the world (over 1 million copies sold!). A fast-paced, no-nonsense guide to programming in Python. Updated and thoroughly revised to reflect the latest in Python code and practices.</strong><br />\n<br />\n<em>Python Crash Course</em>&nbsp;is the world&#39;s best-selling guide to the Python programming language. This fast-paced, thorough introduction to programming with Python will have you writing programs, solving problems, and making things that work in no time.<br />\n<br />\nIn the first half of the book, you&#39;ll learn basic programming concepts, such as variables, lists, classes, and loops, and practice writing clean code with exercises for each topic. You&#39;ll also learn how to make your programs interactive and test your code safely before adding it to a project. In the second half, you&#39;ll put your new knowledge into practice with three substantial projects: a Space Invaders-inspired arcade game, a set of data visualizations with Python&#39;s handy libraries, and a simple web app you can deploy online.<br />\n<br />\nAs you work through the book, you&#39;ll learn how to:<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Use powerful Python libraries and tools, including Pygame, Matplotlib, Plotly, and Django<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Make 2D games that respond to keypresses and mouse clicks, and that increase in difficulty<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Use data to generate interactive visualizations<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Create and customize web apps and deploy them safely online<br />\n&nbsp;&nbsp;<strong>&bull;</strong>&nbsp;&nbsp;Deal with mistakes and errors so you can solve your own programming problems<br />\n<br />\nIf you&#39;ve been thinking about digging into programming,&nbsp;<em>Python Crash Course</em>&nbsp;will get you writing real programs fast. Why wait any longer? Start your engines and code!</p>\n', 'python_crashcoure_1.jpg', 250000, 'Python CrashCoure, 2nd Edition', 'Eric Matthes', '2021-12-05 20:06:55', '2012-01-01', 'Fahasa', 1000, 16, 24, NULL, 120, NULL),
 (24, 1, '<p>Available at a lower price from other sellers&nbsp;that may not offer free Prime shipping.</p>\n\n<p>I am not a recruiter. I am a software engineer. And as such, I know what it&#39;s like to be asked to whip up brilliant algorithms on the spot and then write flawless code on a whiteboard. I&#39;ve been through this as a candidate and as an interviewer.<br />\n<br />\nCracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best. I&#39;ve coached and interviewed hundreds of software engineers. The result is this book.<br />\n<br />\nLearn how to uncover the hints and hidden details in a question, discover how to break down a problem into manageable chunks, develop techniques to unstick yourself when stuck, learn (or re-learn) core computer science concepts, and practice on 189 interview questions and solutions.<br />\n<br />\nThese interview questions are real; they are not pulled out of computer science textbooks. They reflect what&#39;s truly being asked at the top companies, so that you can be as prepared as possible.&nbsp;<strong>WHAT&#39;S INSIDE?</strong></p>\n\n<ul>\n	<li>189 programming interview questions, ranging from the basics to the trickiest algorithm problems.</li>\n	<li>A walk-through of how to derive each solution, so that you can learn how to get there yourself.</li>\n	<li>Hints on how to solve each of the 189 questions, just like what you would get in a real interview.</li>\n	<li>Five proven strategies to tackle algorithm questions, so that you can solve questions you haven&#39;t seen.</li>\n	<li>Extensive coverage of essential topics, such as big O time, data structures, and core algorithms.</li>\n	<li>A behind the scenes look at how top companies like Google and Facebook hire developers.</li>\n	<li>Techniques to prepare for and ace the soft side of the interview: behavioral questions.</li>\n	<li>For interviewers and companies: details on what makes a good interview question and hiring process.</li>\n</ul>\n\n<p><strong>Illustrations noteIllustrations</strong>: Illustrations, black and white</p>\n', 'crackcoding.jpg', 300000, 'Crack Coding', 'Laakmann McDowell', '2021-12-05 20:06:55', '2016-01-01', 'Fahasa', 500, 16, 24, NULL, 0, NULL),
 (25, 1, '<p><strong>A fast-paced, thorough introduction to modern C++ written for experienced programmers. After reading&nbsp;<em>C++ Crash Course</em>, you&#39;ll be proficient in the core language concepts, the C++ Standard Library, and the Boost Libraries.</strong><br />\n<br />\nC++ is one of the most widely used languages for real-world software. In the hands of a knowledgeable programmer, C++ can produce small, efficient, and readable code that any programmer would be proud of.<br />\n<br />\nDesigned for intermediate to advanced programmers, C++ Crash Course&nbsp;cuts through the weeds to get you straight to the core of C++17, the most modern revision of the ISO standard. Part 1 covers the core of the C++ language, where you&#39;ll learn about everything from types and functions, to the object life cycle and expressions. Part 2 introduces you to the C++ Standard Library and Boost Libraries, where you&#39;ll learn about all of the high-quality, fully-featured facilities available to you. You&#39;ll cover special utility classes, data structures, and algorithms, and learn how to manipulate file systems and build high-performance programs that communicate over networks.&nbsp;<br />\n<br />\nYou&#39;ll learn all the major features of modern C++, including:<br />\n&nbsp;&nbsp;&bull;&nbsp;&nbsp;Fundamental types, reference types, and user-defined types<br />\n&nbsp;&nbsp;&bull;&nbsp;&nbsp;The object lifecycle including storage duration, memory management, exceptions, call stacks, and the RAII paradigm&nbsp;<br />\n&nbsp;&nbsp;&bull;&nbsp;&nbsp;Compile-time polymorphism with templates and run-time polymorphism with virtual classes<br />\n&nbsp;&nbsp;&bull;&nbsp;&nbsp;Advanced expressions, statements, and functions<br />\n&nbsp;&nbsp;&bull;&nbsp;&nbsp;Smart pointers, data structures, dates and times, numerics, and probability/statistics facilities<br />\n&nbsp;&nbsp;&bull;&nbsp;&nbsp;Containers, iterators, strings, and algorithms<br />\n&nbsp;&nbsp;&bull;&nbsp;&nbsp;Streams and files, concurrency, networking, and application development<br />\n<br />\nWith well over 500 code samples and nearly 100 exercises, C++ Crash Course is sure to help you build a strong C++ foundation.</p>\n', 'c++_crash_course.jpg', 140000, 'C++ Crash Course', 'Josh Lospinoso', '2021-12-05 20:06:55', '2016-01-01', 'Fahasa', 150, 16, 24, NULL, 0, NULL),
 (26, 1, '<p><strong>What will you learn from this book?</strong></p>\n\n<p>Dive into C# and create apps, user interfaces, games, and more using this fun and highly visual introduction to C#, .NET Core, and Visual Studio. With this completely updated guide, which covers C# 8.0 and Visual Studio 2019, beginning programmers like you will build a fully functional game in the opening chapter. Then you&#39;ll learn how to use classes and object-oriented programming, create 3D games in Unity, and query data with LINQ. And you&#39;ll do it all by solving puzzles, doing hands-on exercises, and building real-world applications. By the time you&#39;re done, you&#39;ll be a solid C# programmer--and you&#39;ll have a great time along the way!</p>\n\n<p><strong>What&#39;s so special about this book?</strong></p>\n\n<p>Based on the latest research in cognitive science and learning theory,&nbsp;<em>Head First C#</em>&nbsp;uses a visually rich format to engage your mind rather than a text-heavy approach that puts you to sleep. Why waste your time struggling with new concepts? This multisensory learning experience is designed for the way your brain really works.</p>\n', 'csharp_headfirst.jpg', 350000, 'Head First C#', 'Addrew & Jenifer', '2021-12-05 20:06:55', '2014-01-01', 'Fahasa', 600, 16, 24, NULL, 0, NULL),
@@ -128,9 +128,9 @@ CREATE TABLE `book_order` (
   `phone` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
   `country` varchar(45) DEFAULT NULL,
-  `paid` float NOT NULL,
-  `debt` float NOT NULL,
-  `payment_date` int(11) NOT NULL,
+  `paid` float DEFAULT 0,
+  `debt` float DEFAULT 0,
+  `payment_date` date DEFAULT NULL,
   `zipcode` varchar(10) DEFAULT NULL,
   `payment_method` varchar(20) DEFAULT NULL,
   `total` float DEFAULT NULL,
@@ -146,15 +146,11 @@ CREATE TABLE `book_order` (
 --
 
 INSERT INTO `book_order` (`order_id`, `customer_id`, `line1`, `line2`, `first_name`, `last_name`, `phone`, `city`, `country`, `paid`, `debt`, `payment_date`, `zipcode`, `payment_method`, `total`, `status`, `shipping_fee`, `discount`, `subtotal`, `order_date`) VALUES
-(23, 3, '7/56/2, đường số 6', 'Long trường, Quận 9', 'Nguyễn', 'Vũ', '123456789', 'TPHCM', 'VN', 0, 0, 0, '123456', 'COD', 808500, 'Giao hàng thành công', 38500, 0, 770000, '2021-12-05 22:17:30'),
-(24, 5, 'số 7, đường 42', 'Bình Trưng Đông, Quận 2', 'Mai', 'Ngôn', '0123456789', 'TPHCM', 'VN', 0, 0, 0, '123456', 'COD', 391000, 'Giao hàng thành công', 23000, 92000, 460000, '2021-12-05 22:29:43'),
-(25, 3, 'Số 7, đường 42', 'Bình trưng đông, quận 2', 'Mai ', 'Ngôn', '123456', 'TPHCM', 'VN', 0, 0, 0, '123456', 'PAYPAL', 382500, 'Giao hàng thành công', 22500, 90000, 450000, '2021-12-06 18:44:27'),
-(26, 3, '7/56/2, đường số 6', 'Long trường, Quận 9', 'Nguyễn', 'Vũ', '123456789', 'TPHCM', 'VN', 0, 0, 0, '123456', 'COD', 600000, 'Đã hủy', 30000, 30000, 600000, '2021-12-22 14:57:41'),
-(27, 3, 'Số 7, đường 42', 'Bình trưng đông, quận 2', 'Mai ', 'Ngôn', '123456', 'TPHCM', 'VN', 0, 0, 0, '123456', 'PAYPAL', 115500, 'Đã thanh toán', 5500, 0, 110000, '2021-12-22 14:59:15'),
-(28, 5, 'số 7, đường 42', 'Bình Trưng Đông, Quận 2', 'Mai', 'Ngôn', '0123456789', 'TPHCM', 'VN', 0, 0, 0, '123456', 'COD', 126000, 'Giao hàng thành công', 6000, 0, 120000, '2021-12-22 15:13:39'),
-(29, 3, 'Số 7, đường 42', 'Bình trưng đông, quận 2', 'Mai ', 'Ngôn', '123456', 'TPHCM', 'VN', 0, 0, 0, '123456', 'COD', 315000, 'Giao hàng thành công', 15000, 0, 300000, '2021-12-23 08:52:17'),
-(30, 3, '7/56/2, đường số 6', 'Long trường, Quận 9', 'Nguyễn', 'Vũ', '123456789', 'TPHCM', 'VN', 0, 0, 0, '123456', 'COD', 494500, 'Đang xử lí', 24500, 20000, 490000, '2021-12-23 16:42:23'),
-(31, 3, '7/56/2, đường số 6', 'Long trường, Quận 9', 'Nguyễn', 'Vũ', '123456789', 'TPHCM', 'VN', 0, 0, 0, '123456', 'COD', 295000, 'Đang xử lí', 15000, 20000, 300000, '2021-12-24 11:07:31');
+(43, 3, 'Số 7, đường 42', 'Bình trưng đông, quận 2', 'Mai ', 'Ngôn', '123456', 'TPHCM', 'VN', 266648, 0, '2022-05-31', '123456', 'COD', 266648, 'Giao hàng thành công', 12697.5, 0, 253950, '2022-04-14 21:08:57'),
+(44, 3, 'Số 7, đường 42', 'Bình trưng đông, quận 2', 'Mai ', 'Ngôn', '123456', 'TPHCM', 'VN', 372750, 0, '2022-06-01', '123456', 'COD', 372750, 'Giao hàng thành công', 17750, 0, 355000, '2022-05-31 21:12:14'),
+(45, 3, 'Số 7, đường 42', 'Bình trưng đông, quận 2', 'Mai ', 'Ngôn', '123456', 'TPHCM', 'VN', 500000, 77500, '2022-06-01', '123456', 'COD', 577500, 'Giao hàng thành công', 27500, 0, 550000, '2022-05-31 21:17:17'),
+(46, 3, 'Số 7, đường 42', 'Bình trưng đông, quận 2', 'Mai ', 'Ngôn', '123456', 'TPHCM', 'VN', 20000, 242500, '2022-05-31', '123456', 'PAYPAL', 262500, 'Giao hàng thành công', 12500, 0, 250000, '2022-05-31 21:21:12'),
+(47, 5, 'số 7, đường 42', 'Bình Trưng Đông, Quận 2', 'Mai', 'Ngôn', '0123456789', 'TPHCM', 'VN', 160000, 4272, '2022-06-01', '123456', 'COD', 164272, 'Giao hàng thành công', 7822.5, 0, 156450, '2022-06-01 00:00:03');
 
 -- --------------------------------------------------------
 
@@ -271,7 +267,7 @@ INSERT INTO `discount` (`discount_id`, `discount_percent`, `discount_number`, `n
 (2, 0, 20000, 'Voucher 20k', 'Mã bookstore giảm 20k cho đơn hàng từ 300k', 300000, '#5gdsagf', 100, 0, 'money', '2021-10-30 18:10:27', '2021-12-31 18:08:44', 1),
 (3, 0.1, NULL, 'Voucher 10%', 'Mã bookstore giảm 10% cho đơn hàng từ 250k', 250000, '#jka5gd1', 100, 0, 'percent', '2021-11-02 20:13:30', '2021-12-30 14:11:01', 1),
 (4, 0.2, NULL, 'Voucher 20%', 'Mã bookstore giảm 20% cho đơn hàng từ 350k', 350000, '#bvcyu6f', 100, 0, 'percent', '2021-11-02 20:13:33', '2021-12-31 14:11:01', 1),
-(6, NULL, 30000, 'Voucher 30k', 'Mã giảm giá 30k cho đơn hàng từ 300k', 300000, 'asdfghjk', NULL, 0, 'money', '2021-12-15 11:25:00', '2021-12-31 11:20:00', NULL);
+(6, NULL, 30000, 'Voucher 30k', 'Mã giảm giá 30k cho đơn hàng từ 300k', 300000, 'asdfghjk', NULL, 0, 'money', '2022-05-29 11:25:00', '2021-12-06 11:20:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -323,7 +319,9 @@ INSERT INTO `have_role` (`role_id`, `user_id`) VALUES
 (6, 1),
 (7, 1),
 (8, 1),
-(9, 1);
+(9, 1),
+(9, 4),
+(10, 1);
 
 -- --------------------------------------------------------
 
@@ -338,8 +336,21 @@ CREATE TABLE `inventory` (
   `purchase_date` datetime DEFAULT current_timestamp(),
   `receive_date` datetime DEFAULT NULL,
   `total` float DEFAULT NULL,
+  `price` float NOT NULL,
   `migrate_quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `inventory`
+--
+
+INSERT INTO `inventory` (`inventory_id`, `supplier_id`, `book_id`, `purchase_date`, `receive_date`, `total`, `price`, `migrate_quantity`) VALUES
+(1, 1, 20, '2022-04-30 00:00:00', '2022-05-31 00:00:00', 9500000, 0, 170),
+(2, 1, 20, '2022-04-30 00:00:00', '2022-05-31 00:00:00', 7500000, 0, 300),
+(3, 1, 21, '2022-04-30 00:00:00', '2022-05-31 00:00:00', 2500000, 99000, 170),
+(4, 1, 22, '2022-04-30 00:00:00', '2022-05-31 00:00:00', 9500000, 50000, 120),
+(5, 1, 22, '2022-04-30 00:00:00', '2022-05-31 00:00:00', 9500000, 50000, 120),
+(6, 1, 23, '2022-04-15 00:00:00', '2022-05-31 00:00:00', 9500000, 250000, 120);
 
 -- --------------------------------------------------------
 
@@ -373,23 +384,15 @@ CREATE TABLE `order_detail` (
 --
 
 INSERT INTO `order_detail` (`order_id`, `book_id`, `quantity`, `subtotal`) VALUES
-(23, 20, 1, 150000),
-(23, 22, 1, 120000),
-(23, 28, 1, 500000),
-(24, 27, 1, 110000),
-(24, 29, 2, 200000),
-(24, 60, 1, 150000),
-(25, 37, 2, 300000),
-(25, 65, 1, 150000),
-(26, 21, 1, 100000),
-(26, 36, 1, 500000),
-(27, 27, 1, 110000),
-(28, 22, 1, 120000),
-(29, 20, 2, 300000),
-(30, 25, 1, 140000),
-(30, 26, 1, 350000),
-(31, 58, 1, 150000),
-(31, 65, 1, 150000);
+(43, 20, 1, 150000),
+(43, 21, 1, 103950),
+(44, 22, 2, 105000),
+(44, 23, 1, 250000),
+(45, 20, 2, 300000),
+(45, 23, 1, 250000),
+(46, 23, 1, 250000),
+(47, 21, 1, 103950),
+(47, 22, 1, 52500);
 
 -- --------------------------------------------------------
 
@@ -409,11 +412,11 @@ CREATE TABLE `parameter` (
 --
 
 INSERT INTO `parameter` (`parameter_id`, `code`, `value`, `enable`) VALUES
-(1, 'MIN_MIGRATE', '150', 1),
+(1, 'MIN_MIGRATE', '100', 1),
 (2, 'MIN_REMAIN', '300', 1),
 (3, 'MAX_DEBT', '20000', 1),
 (4, 'MIN_CURRENT_BOOK', '20', 1),
-(5, 'PRICE_PERCENT', '1.05', 1);
+(5, 'PRICE_PERCENT', '1.05', 0);
 
 -- --------------------------------------------------------
 
@@ -479,7 +482,8 @@ INSERT INTO `role` (`role_id`, `name`, `description`) VALUES
 (6, 'user', 'Quản lí người dùng'),
 (7, 'supplier', 'Quản lí nhà cung cấp'),
 (8, 'review', 'Quản lí đánh giá'),
-(9, 'inventory', 'Quản lí kho');
+(9, 'inventory', 'Quản lí kho'),
+(10, 'parameter', 'Quản lí tham số');
 
 -- --------------------------------------------------------
 
@@ -683,7 +687,7 @@ ALTER TABLE `book_image`
 -- AUTO_INCREMENT cho bảng `book_order`
 --
 ALTER TABLE `book_order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `category`
@@ -713,7 +717,7 @@ ALTER TABLE `discount`
 -- AUTO_INCREMENT cho bảng `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `inventory_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `inventory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `parameter`
@@ -737,7 +741,7 @@ ALTER TABLE `review_response`
 -- AUTO_INCREMENT cho bảng `role`
 --
 ALTER TABLE `role`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `supplier`

@@ -113,8 +113,8 @@
     </div>
     <div class="table-control">
         <div class="action">
-            <h2>Công Nợ khách hàng</h2>
-            <form action="index?controller=home&action=reportBy" id="#debit" method="POST">
+            <h2>Công Nợ khách hàng <?php echo isset($_POST['date']) ? 'tháng ' . date('m-Y', strtotime($_POST['date'])) : '' ?></h2>
+            <form action="index.php?controller=home&action=reportDebtByDate" id="#debit" method="POST">
                 <div class="form-group">
                     <input type="month" name="date" placeholder="Nhap thang">
                     <button class="btn">submit</button>
@@ -129,24 +129,18 @@
                     <th>Nợ Đầu</th>
                     <th>Phát Sinh</th>
                     <th>Nợ cuối</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody class="content-body">
                 <?php
-                foreach ($reviews as $review) {
+                foreach ($debtReports as $debt) {
                 ?>
                     <tr>
-                        <td><?php echo $review['customer_id'] ?></td>
-                        <td><?php echo $review['book_id'] ?></td>
-                        <td><?php echo $review['headline'] ?></td>
-                        <td><?php echo $review['rating'] ?> <i class="far fa-star"></i></td>
-                        <td>10000</td>
-                        <td>
-                            <a href="" class="btn-delete-review" review-id="<?php echo $review['review_id'] ?>"><i class="fas fa-trash-alt"></i></a>
-                            <a href="" class="btn-update-review" review-id="<?php echo $review['review_id'] ?>"><i class="fas fa-edit"></i></a>
-                            <a href="" class="btn-change-status" review-id="<?php echo $review['review_id'] ?>"><i class="far fa-check-circle"></i></a>
-                        </td>
+                        <td><?php echo $debt['customerId'] ?></td>
+                        <td><?php echo $debt['name'] ?></td>
+                        <td><?php echo number_format($debt['head'], 0, '.', '.') ?> đ</td>
+                        <td><?php echo number_format($debt['growth'], 0, '.', '.') ?> đ</i></td>
+                        <td><?php echo number_format($debt['last'], 0, '.', '.') ?> đ</td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -154,11 +148,14 @@
     </div>
     <div class="table-control">
         <div class="action">
-            <h2>Báo cáo tồn</h2>
+            <h2>Báo cáo tồn
+                <?php echo isset($_POST['date2']) ? 'tháng ' . date('m-Y', strtotime($_POST['date2'])) : '' ?>
+            </h2>
+
             <!-- <a href="#bookremain" class="btn">View All</a> -->
-            <form action="index.php?controller=home&action=reportInventoryByDate" id="#bookremain" method="POST">
+            <form action="index.php?controller=home&action=reportInventoryByDate" id="#bookremain" method="post">
                 <div class="form-group">
-                    <input type="month" name="date" placeholder="Nhap thang/nam">
+                    <input type="month" name="date2" placeholder="Nhap thang/nam">
                     <button class="btn">submit</button>
                 </div>
             </form>
@@ -171,24 +168,18 @@
                     <th>Tồn đầu</th>
                     <th>Phát sinh</th>
                     <th>Tồn cuối</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody class="content-body">
                 <?php
-                foreach ($reviews as $review) {
+                foreach ($inventoryReports as $report) {
                 ?>
                     <tr>
-                        <td><?php echo $review['customer_id'] ?></td>
-                        <td><?php echo $review['book_id'] ?></td>
-                        <td><?php echo $review['headline'] ?></td>
-                        <td><?php echo $review['rating'] ?> <i class="far fa-star"></i></td>
-                        <td>1000</td>
-                        <td>
-                            <a href="" class="btn-delete-review" review-id="<?php echo $review['review_id'] ?>"><i class="fas fa-trash-alt"></i></a>
-                            <a href="" class="btn-update-review" review-id="<?php echo $review['review_id'] ?>"><i class="fas fa-edit"></i></a>
-                            <a href="" class="btn-change-status" review-id="<?php echo $review['review_id'] ?>"><i class="far fa-check-circle"></i></a>
-                        </td>
+                        <td><?php echo $report['bookId'] ?></td>
+                        <td><?php echo $report['title'] ?></td>
+                        <td><?php echo $report['head'] ?></td>
+                        <td><?php echo $report['growth'] ?></i></td>
+                        <td><?php echo $report['last'] ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
