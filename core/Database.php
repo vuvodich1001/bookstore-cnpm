@@ -3,8 +3,8 @@
 class Database {
     const HOST = 'localhost';
     const USERNAME = 'root';
-    const PASSWORD = '';
-    const DB_NAME = 'store_cnpm';
+    const PASSWORD = 'password';
+    const DB_NAME = 'bookstore_cnpm';
 
     public function connect() {
         $host = self::HOST;
