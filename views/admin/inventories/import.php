@@ -4,6 +4,9 @@
     <div class="grid wide">
         <div class="col-6">
             <h1>Inventory</h1>
+            <div class="form-group">
+                <a href="book" class="btn">List All Book</a>
+            </div>
             <form action="inventory/importBook" method="POST" id="form-inventory" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="">Select Supplier </label>
@@ -17,28 +20,22 @@
                         ?>
                     </select>
                 </div>
-
                 <div class="form-group">
-                    <label for="">Input Book ID</label>
-                    <input type="text" name="book_id" id="book_id" style="max-width: 200px;">
+                    <label for="">BookId</label>
+                    <input type="text" name="book_id" id="book_id" placeholder="migrate_quantity">
                 </div>
-
                 <div class="form-group">
-                    <a href="http://localhost/bookstore-cnpm/admin/book" class="btn">List All Book</a>
+                    <label for="">Total</label>
+                    <input type="text" name="total" id="total">
                 </div>
-
-                <div class="name-group">
-                    <div class="form-group">
-                        <label for="">Total</label>
-                        <input type="text" name="total" id="total">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Migrate Quantity</label>
-                        <input type="number" name="migrate_quantity" id="migrate_quantity" min="<?php echo $GLOBALS['MIN_MIGRATE'] ?>">
-                    </div>
+                <div class="form-group">
+                    <label for="">Price</label>
+                    <input type="text" name="price" id="price">
                 </div>
-
+                <div class="form-group">
+                    <label for="">Quantity</label>
+                    <input type="number" name="migrate_quantity" placeholder="migrate_quantity" id="migrate_quantity" min="<?php echo $GLOBALS['MIN_MIGRATE'] ?>">
+                </div>
                 <button class="btn btn-import">Import</button>
 
                 <div class="search-result">

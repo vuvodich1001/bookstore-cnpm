@@ -85,6 +85,7 @@ function createBill(orderId, type) {
       method: 'POST',
       body: formData,
     }).then(() => {
+      alert(`Thanh toán nợ cho khách hàng có orderId = ${orderId}`);
       location.href = 'http://localhost/bookstore-cnpm/admin/order';
     });
   });
@@ -161,19 +162,36 @@ function fetchDataOrder(data = {}, id) {
             return `
                             <tr>
                                 <td>${order['order_id']}</td>
-                                <td>${order['first_name']} ${order['last_name']}</td>
-                                <td>${order['line1']}, ${order['line2']}, ${order['city']} </td>
+                                <td>${order['first_name']} ${
+              order['last_name']
+            }</td>
+                                <td>${order['line1']}, ${order['line2']}, ${
+              order['city']
+            } </td>
                                 <td>${order['phone']} </td>
                                 <td>${order['payment_method']}</td>
                                 <td>${order['total']}đ</td>
-                                <td style="color: ${color}" class="order-status-${order.order_id}">${order['status']}</td>
+                                <td style="color: ${color}" class="order-status-${
+              order.order_id
+            }">${order['status']}</td>
                                 <td>${order['paid']}</td>
                                 <td>${order['debt']}</td>
                                 <td>${order['order_date']}</td>
                                 <td>
-                                    <a href="" class="btn-detail-order" order-id="${order['order_id']}"><i class="fas fa-info-circle"></i></a>
-                                    <a href="" class="btn-success-status" order-id="${order['order_id']}"><i class="far fa-check-circle"></i></a>
-                                    <a href="" class="btn-shipping-status" order-id="${order['order_id']}"><i class="fas fa-shipping-fast"></i></a>
+                                    <a href="" class="btn-detail-order" order-id="${
+                                      order['order_id']
+                                    }"><i class="fas fa-info-circle"></i></a>
+                                    ${
+                                      order['debt'] > 0
+                                        ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}"><i class="fa-solid fa-hand-holding-dollar"></i></a>`
+                                        : ''
+                                    }
+                                    <a href="" class="btn-success-status" order-id="${
+                                      order['order_id']
+                                    }"><i class="far fa-check-circle"></i></a>
+                                    <a href="" class="btn-shipping-status" order-id="${
+                                      order['order_id']
+                                    }"><i class="fas fa-shipping-fast"></i></a>
                                 </td>
                             </tr>
                         `;
@@ -181,18 +199,33 @@ function fetchDataOrder(data = {}, id) {
             return `
                             <tr>
                                 <td>${order['order_id']}</td>
-                                <td>${order['first_name']} ${order['last_name']}</td>
-                                <td>${order['line1']}, ${order['line2']}, ${order['city']} </td>
+                                <td>${order['first_name']} ${
+              order['last_name']
+            }</td>
+                                <td>${order['line1']}, ${order['line2']}, ${
+              order['city']
+            } </td>
                                 <td>${order['phone']} </td>
                                 <td>${order['payment_method']}</td>
                                 <td>${order['total']}đ</td>
-                                <td style="color: ${color}" class="order-status-${order.order_id}">${order['status']}</td>
+                                <td style="color: ${color}" class="order-status-${
+              order.order_id
+            }">${order['status']}</td>
                                 <td>${order['paid']}</td>
                                 <td>${order['debt']}</td>
                                 <td>${order['order_date']}</td>
                                 <td>
-                                    <a href="" class="btn-detail-order" order-id="${order['order_id']}"><i class="fas fa-info-circle"></i></a>
-                                    <a href="" class="btn-success-status" order-id="${order['order_id']}"><i class="far fa-check-circle"></i></a>
+                                    <a href="" class="btn-detail-order" order-id="${
+                                      order['order_id']
+                                    }"><i class="fas fa-info-circle"></i></a>
+                                    ${
+                                      order['debt'] > 0
+                                        ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}"><i class="fa-solid fa-hand-holding-dollar"></i></a>`
+                                        : ''
+                                    }
+                                    <a href="" class="btn-success-status" order-id="${
+                                      order['order_id']
+                                    }"><i class="far fa-check-circle"></i></a>
                                 </td>
                             </tr>
                         `;
@@ -201,16 +234,27 @@ function fetchDataOrder(data = {}, id) {
                         <tr>
                           <td>${order['order_id']}</td>
                           <td>${order['first_name']} ${order['last_name']}</td>
-                          <td>${order['line1']}, ${order['line2']}, ${order['city']} </td>
+                          <td>${order['line1']}, ${order['line2']}, ${
+            order['city']
+          } </td>
                           <td>${order['phone']} </td>
                           <td>${order['payment_method']}</td>
                           <td>${order['total']}đ</td>
-                          <td style="color: ${color}" class="order-status-${order.order_id}">${order['status']}</td>
+                          <td style="color: ${color}" class="order-status-${
+            order.order_id
+          }">${order['status']}</td>
                           <td>${order['paid']}</td>
                           <td>${order['debt']}</td>
                           <td>${order['order_date']}</td>
                             <td>
-                                <a href="" class="btn-detail-order" order-id="${order['order_id']}"><i class="fas fa-info-circle"></i></a>
+                                <a href="" class="btn-detail-order" order-id="${
+                                  order['order_id']
+                                }"><i class="fas fa-info-circle"></i></a>
+                                ${
+                                  order['debt'] > 0
+                                    ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}"><i class="fa-solid fa-hand-holding-dollar"></i></a>`
+                                    : ''
+                                }
                             </td>
                         </tr>
                     `;

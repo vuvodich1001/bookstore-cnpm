@@ -57,4 +57,6 @@ tồn cuối = tồn đầu + (nhập - bán) = phát sinh
 
 Tồn đầu tháng 2 = tồn cuối tháng 1
 
+Thêm số tiền còn  nợ và  đã trả vào chi tiết đơn hàng
+Tông tiền nợ vào thông tin tài khoản
 ```

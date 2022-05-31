@@ -410,3 +410,10 @@ nav .personal {
 .text-info {
   color: #17a2b8;
 }
+
+#form-inventory {
+  width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--main-color);
+}

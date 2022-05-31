@@ -227,15 +227,16 @@ class BookModel extends BaseModel {
         return $stmt->fetch()['quantity'];
     }
 
-    public function updateQuantity($bookId, $migrateQuantity) {
+    public function updateQuantityAndPrice($bookId, $migrateQuantity, $price) {
         $sql = "update book 
-                set current_quantity = current_quantity + :quantity
+                set current_quantity = current_quantity + :quantity,
+                price = :price
                 where book_id = :book_id";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['quantity' => $migrateQuantity, 'book_id' => $bookId]);
+        $stmt->execute(['quantity' => $migrateQuantity, 'book_id' => $bookId, 'price' => $GLOBALS['PRICE_PERCENT'] * $price]);
     }
 
-    public function getCurrentQuantity ($bookId) {
+    public function getCurrentQuantity($bookId) {
         $sql = "select current_quantity as quantity from book where book_id = :book_id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['book_id' => $bookId]);

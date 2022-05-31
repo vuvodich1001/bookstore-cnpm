@@ -17,10 +17,9 @@ class InventoryController extends BaseController {
         $this->categoryModel = new CategoryModel();
         $this->bookModel = new BookModel();
         $this->userId = $_SESSION['user']['user_id'];
-
     }
 
-    public function index () {
+    public function index() {
         $roles = $this->getUserModel()->getAllRoleByUserId($this->userId);
         $inventories = $this->inventoryModel->getAll();
         return $this->view('admin.inventories.show', ['inventories' => $inventories, 'roles' => $roles]);
@@ -31,15 +30,15 @@ class InventoryController extends BaseController {
         $suppliers = $this->supplierModel->getAll();
         $roles = $this->getUserModel()->getAllRoleByUserId($this->userId);
 
-        return $this->view('admin.inventories.import', ['categories' => $categories, 'suppliers' => $suppliers ,'roles' => $roles]);
+        return $this->view('admin.inventories.import', ['categories' => $categories, 'suppliers' => $suppliers, 'roles' => $roles]);
     }
 
-    public function importBook () {
+    public function importBook() {
         $bookId = $_POST['book_id'];
         $total = $_POST['total'];
         $migrateQuantity = $_POST['migrate_quantity'];
         $supplierId = $_POST['supplier'];
-
+        $price = $_POST['price'];
         $data = [
             'book_id' => $bookId,
             'supplier_id' => $supplierId,
@@ -47,20 +46,20 @@ class InventoryController extends BaseController {
             'receive_date' => date("Y-m-d"),
             'total' => $total,
             'migrate_quantity' => $migrateQuantity,
+            'price' => $price
         ];
 
         $roles = $this->getUserModel()->getAllRoleByUserId($this->userId);
         $inventories = $this->inventoryModel->getAll();
 
-        if ($this->bookModel->getCurrentQuantity($bookId) < $GLOBALS['MIN_REMAIN']){
-            $this->bookModel->updateQuantity($bookId, $migrateQuantity);
+        if ($this->bookModel->getCurrentQuantity($bookId) < $GLOBALS['MIN_REMAIN']) {
+            $this->bookModel->updateQuantityAndPrice($bookId, $migrateQuantity, $price);
             $this->inventoryModel->createInventory($data);
             $message = "Import Book Sucessfully";
             $book = $this->bookModel->getById($bookId);
             return $this->view("admin.inventories.show", ["message" => $message, "book" => $book, "roles" => $roles, "inventories" => $inventories]);
-
-        }else{
-            $error = "The quantity of the product must be less than ". $GLOBALS['MIN_REMAIN'];
+        } else {
+            $error = "The quantity of the product must be less than " . $GLOBALS['MIN_REMAIN'];
             return $this->view("admin.inventories.show", ["error" => $error, "roles" => $roles, "inventories" => $inventories]);
         }
     }
