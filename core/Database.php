@@ -4,7 +4,7 @@ class Database {
     const HOST = 'localhost';
     const USERNAME = 'root';
     const PASSWORD = '';
-    const DB_NAME = 'store_cnpm';
+    const DB_NAME = '';
 
     public function connect() {
         $host = self::HOST;

@@ -48,7 +48,7 @@
 <div class="modal modal-overlay">
     <div class="modal-body modal-book">
         <h1>Book</h1>
-        <form action="admin.php?controller=book&action=createBook" method="POST" id="form-book" enctype="multipart/form-data">
+        <form action="book/createBook" method="POST" id="form-book" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Category: </label>
                 <select name="category" id="#category" class="">

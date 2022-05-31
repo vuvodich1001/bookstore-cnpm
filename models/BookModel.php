@@ -226,4 +226,12 @@ class BookModel extends BaseModel {
         $stmt->execute(['book_id' => $bookId]);
         return $stmt->fetch()['quantity'];
     }
+
+    public function updateQuantity($bookId, $migrateQuantity) {
+        $sql = "update book 
+                set current_quantity = current_quantity + :quantity
+                where book_id = :book_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['quantity' => $migrateQuantity, 'book_id' => $bookId]);
+    }
 }
