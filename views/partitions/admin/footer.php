@@ -37,6 +37,7 @@
         CKEDITOR.replace('description');
 </script>
 <script src="../public/admin/js/book.js"></script>
+<script src="../public/admin/js/parameter.js"></script>
 </body>
 
 </html>
