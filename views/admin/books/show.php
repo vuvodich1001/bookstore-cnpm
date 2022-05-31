@@ -17,6 +17,7 @@
             <th>Publish Date</th>
             <th>Publisher</th>
             <th>Info</th>
+            <th>Quantity</th>
             <th>create_date</th>
             <th>Action</th>
         </thead>
@@ -36,6 +37,7 @@
                     <td><?php echo date('d/m/Y', strtotime($book['publish_date'])) ?></td>
                     <td><?php echo $book['publisher'] ?></td>
                     <td><?php echo $book['page'] . ' x ' . $book['height'] . ' x ' . $book['width'] ?></td>
+                    <td><?php echo $book['current_quantity'] ?></td>
                     <td><?php echo date('d/m/Y', strtotime($book['create_date'])) ?></td>
                     <td><a href="" class="btn-delete-book" book-id="<?php echo $book['book_id'] ?>"><i class="fas fa-trash-alt"></i></a>
                         <a href="" class="btn-update-book" book-id="<?php echo $book['book_id'] ?>"><i class="fas fa-edit"></i></a>

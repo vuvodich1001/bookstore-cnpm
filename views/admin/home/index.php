@@ -114,9 +114,9 @@
     <div class="table-control">
         <div class="action">
             <h2>Công Nợ khách hàng</h2>
-            <form action="index?controller=home&action=dff" id="#debit" method="get">
+            <form action="index?controller=home&action=reportBy" id="#debit" method="POST">
                 <div class="form-group">
-                    <input type="date" name="date" placeholder="Nhap thang/name">
+                    <input type="month" name="month" placeholder="Nhap thang">
                     <button>submit</button>
                 </div>
             </form>
@@ -156,9 +156,9 @@
         <div class="action">
             <h2>Báo cáo tồn</h2>
             <!-- <a href="#bookremain" class="btn">View All</a> -->
-            <form action="" id="#bookremain">
+            <form action="index.php?controller=home&action=reportInventoryByMonth" id="#bookremain" method="POST">
                 <div class="form-group">
-                    <input type="number" placeholder="Nhap thang">
+                    <input type="month" name="date" placeholder="Nhap thang/nam">
                     <button>submit</button>
                 </div>
             </form>

@@ -58,4 +58,12 @@ class HomeController extends BaseController {
             'textColors' => $textColors
         ]);
     }
+
+    public function reportInventoryByMonth() {
+        $date = $_POST['date'];
+        $data = explode('-', $date);
+        $year = $data[0];
+        $month = $data[1];
+        die($month . $year);
+    }
 }
