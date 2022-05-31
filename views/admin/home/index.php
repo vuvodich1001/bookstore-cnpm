@@ -116,8 +116,8 @@
             <h2>Công Nợ khách hàng</h2>
             <form action="index?controller=home&action=reportBy" id="#debit" method="POST">
                 <div class="form-group">
-                    <input type="month" name="month" placeholder="Nhap thang">
-                    <button>submit</button>
+                    <input type="month" name="date" placeholder="Nhap thang">
+                    <button class="btn">submit</button>
                 </div>
             </form>
         </div>
@@ -125,7 +125,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Tên KH</th>
                     <th>Nợ Đầu</th>
                     <th>Phát Sinh</th>
                     <th>Nợ cuối</th>
@@ -156,10 +156,10 @@
         <div class="action">
             <h2>Báo cáo tồn</h2>
             <!-- <a href="#bookremain" class="btn">View All</a> -->
-            <form action="index.php?controller=home&action=reportInventoryByMonth" id="#bookremain" method="POST">
+            <form action="index.php?controller=home&action=reportInventoryByDate" id="#bookremain" method="POST">
                 <div class="form-group">
                     <input type="month" name="date" placeholder="Nhap thang/nam">
-                    <button>submit</button>
+                    <button class="btn">submit</button>
                 </div>
             </form>
         </div>
@@ -167,7 +167,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Book</th>
+                    <th>Tên Sách</th>
                     <th>Tồn đầu</th>
                     <th>Phát sinh</th>
                     <th>Tồn cuối</th>

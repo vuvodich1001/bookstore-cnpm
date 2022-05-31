@@ -100,8 +100,18 @@
                             </tr>
                             <tr class="order-fee">
                                 <td colspan="3" class="order-fee-title">Tổng cộng</td>
-                                <td class="order-fee-total"><?php echo number_format($order['total'], 0, '.', '.') ?>đ</td>
+                                <td class="order-fee-total"><?php echo number_format($order['total'], 0, '.', '.') ?> đ</td>
                             </tr>
+                            <?php if ($order['paid'] > 0) : ?>
+                                <tr class="order-fee" style="border-top: 1px solid #f5f5f5;">
+                                    <td colspan="3" class="order-fee-title">Đã trả</td>
+                                    <td><?php echo number_format($order['paid'], 0, '.', '.') ?> đ</td>
+                                </tr>
+                                <tr class="order-fee">
+                                    <td colspan="3" class="order-fee-title">Còn nợ</td>
+                                    <td style="color:red;"><?php echo number_format($order['debt'], 0, '.', '.') ?> đ</td>
+                                </tr>
+                            <?php endif ?>
                         </tbody>
                     </table>
                 </div>

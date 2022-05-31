@@ -7,5 +7,6 @@ $data = [];
 while ($row = $result->fetch()) {
     $code = $row['code'];
     $value = $row['value'];
-    $GLOBALS[$code] = $value;
+    if ($row['enable'] == 1)
+        $GLOBALS[$code] = $value;
 }

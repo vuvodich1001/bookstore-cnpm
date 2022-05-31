@@ -67,9 +67,9 @@
                 <!-- <p class="detail-description"><strong>Số lượng đã bán: </strong></p> -->
                 <div class="detail-quantity">
                     <strong> Số lượng: </strong>
-                    <button><i class="fas fa-plus"></i></button>
-                    <span class="cur-quantity">1</span>
                     <button><i class="fas fa-minus"></i></button>
+                    <span class="cur-quantity">1</span>
+                    <button><i class="fas fa-plus"></i></button>
                 </div>
                 <button book-id="<?php echo $book['book_id'] ?>" class="btn btn-addtocart active"><i class="fas fa-plus-circle"></i> Thêm vào giỏ hàng</button>
             </div>

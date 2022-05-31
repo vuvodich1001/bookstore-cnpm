@@ -74,10 +74,11 @@ function createBill(orderId, type) {
       formData.append('debt', debt);
       formData.append('paid', paid);
     } else {
+      alert(paymentPaid.value, total);
       formData.append('paid', paymentPaid.value);
       formData.append(
         'debt',
-        paymentPaid.value < total ? total - Number(paymentPaid.value) : 0.0
+        paymentPaid.value < total ? total - paymentPaid.value : 0.0
       );
     }
     formData.append('orderId', orderId);
@@ -85,7 +86,7 @@ function createBill(orderId, type) {
       method: 'POST',
       body: formData,
     }).then(() => {
-      alert(`Thanh toán nợ cho khách hàng có orderId = ${orderId}`);
+      alert(`Thanh toán cho khách hàng có orderId = ${orderId}`);
       location.href = 'http://localhost/bookstore-cnpm/admin/order';
     });
   });

@@ -16,6 +16,14 @@
         </div>
         <div class="col l-9">
             <h3>Đơn hàng của tôi</h3>
+            <?php
+            $debt = array_reduce($orders, function ($acc, $value) {
+                return $acc + $value['debt'];
+            }, 0);
+            if ($debt > 0) {
+                echo '<p style="margin: 10px 0; color: red;">Số tiền còn nợ: ' . number_format($debt, 0, '.', '.') . ' ₫</p>';
+            }
+            ?>
             <div class="account-body">
                 <table class="order-table">
                     <thead>
@@ -30,7 +38,7 @@
 
                     <tbody>
                         <?php foreach ($orders as $order) : ?>
-                            <tr>
+                            <tr style="color: <?php echo $order['debt'] > 0 ? 'red' : ''; ?>">
                                 <td class="order-code"><a href="account/order/<?php echo $order['order_id'] ?>">#<?php echo $order['order_id'] ?></a></td>
                                 <td><?php $time = strtotime($order['order_date']);
                                     echo date('d/m/Y', $time); ?></td>

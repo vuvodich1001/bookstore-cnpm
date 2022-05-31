@@ -5,7 +5,6 @@ class HomeController extends BaseController {
     private $customerModel;
     private $reportModel;
     private $bookModel;
-    private $inventoryReport;
 
     public function __construct() {
         parent::__construct();
@@ -74,15 +73,18 @@ class HomeController extends BaseController {
         $month = $data[1];
 
         // Inventory Report
-        $this->inventoryReport = [];
+        $inventoryReport = [];
 
-        foreach($this->bookModel->getAll(['book_id']) as $book) {
+        foreach ($this->bookModel->getAll(['book_id']) as $book) {
             $saleTotal = $this->reportModel->getSaleSumByBook_IdAndMonthAndYear($book['book_id'], $month, $year); // get sale total
             $importTotal = $this->reportModel->getImportSumByBook_IdAndMonthAndYear($book['book_id'], $month, $year); // get import total
             $finalRemainPreviousMonth = $this->reportModel->getFinalRemainByBook_IdAndMonthAndYear($book['book_id'], $month - 1, $year); // get final remain previous month, exam: curr = 5 -> previous = 4
-        
-            $this->inventoryReport[] = ['saleTotal' => $saleTotal, 'importTotal' => $importTotal, 'finalRemainPreviousMonth' => $finalRemainPreviousMonth];
+
+            $inventoryReport[] = ['saleTotal' => $saleTotal, 'importTotal' => $importTotal, 'finalRemainPreviousMonth' => $finalRemainPreviousMonth];
         }
+
+        print_r($inventoryReport);
+        die();
     }
 
     public function reportCustomerDebtByDate() {
@@ -94,11 +96,11 @@ class HomeController extends BaseController {
         // Inventory Report
         $this->inventoryReport = [];
 
-        foreach($this->customerModel->getAll(['customer_id']) as $customer) {
+        foreach ($this->customerModel->getAll(['customer_id']) as $customer) {
             $loanSum = $this->reportModel->getLoanSumByCustomer_IdAndMonthAndYear($customer['customer_id'], $month, $year); // get sale total
             $paymentSum = $this->reportModel->getPaymentSumByCustomer_IdAndMonthAndYear($customer['customer_id'], $month, $year); // get import total
             $finalRemainPreviousMonth = $this->reportModel->getFinalRemainByCustomer_IdAndMonthAndYear($customer['customer_id'], $month - 1, $year); // get final remain previous month, exam: curr = 5 -> previous = 4
-        
+
             $this->inventoryReport[] = ['loanSum' => $loanSum, 'paymentSum' => $paymentSum, 'finalRemainPreviousMonth' => $finalRemainPreviousMonth];
         }
     }

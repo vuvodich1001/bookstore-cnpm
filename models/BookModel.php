@@ -234,7 +234,7 @@ class BookModel extends BaseModel {
                 price = :price
                 where book_id = :book_id";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['quantity' => $migrateQuantity, 'book_id' => $bookId, 'price' => $GLOBALS['PRICE_PERCENT'] * $price]);
+        $stmt->execute(['quantity' => $migrateQuantity, 'book_id' => $bookId, 'price' => isset($GLOBALS['PRICE_PERCENT']) ? $GLOBALS['PRICE_PERCENT'] * $price : $price]);
     }
 
     public function getCurrentQuantity($bookId) {

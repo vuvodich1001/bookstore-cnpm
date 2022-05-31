@@ -123,18 +123,14 @@ class OrderModel extends BaseModel {
         $stmt->execute(['customerId' => $customerId]);
         $debt = $stmt->fetch()['debt'];
 
-        // $sql = "select current_quantity from book where book_id = :bookId";
-        // $stmt = $this->db->prepare($sql);
-        // $stmt->execute(['bookId' => $bookId]);
-        // $debt = $stmt->fetch()['current'];
         $book = $this->find(self::TABLE_BOOK, $bookId);
         $bookQuantityRemain = $book['current_quantity'] - $quantity;
 
         if ($debt > $GLOBALS['MAX_DEBT']) {
-            return 'Số tiền nợ của bạn vượt quá ' . $GLOBALS['MAX_DEBT'];
+            return 'Số tiền nợ của bạn vượt quá ' . number_format($GLOBALS['MAX_DEBT'], 0, '.', '.') . ' đ!!!';
         }
         if ($bookQuantityRemain < $GLOBALS['MIN_CURRENT_BOOK']) {
-            return 'Số tiền sách tồn còn ' . $bookQuantityRemain . ' không đủ để mua hàng';
+            return 'Số lượng sách tồn còn lại không đủ để mua hàng!!!';
         }
 
         return 1;

@@ -30,7 +30,7 @@ if (isset($message)) { ?>
                     <td><?php echo $book['book_id'] ?></td>
                     <td><?php echo $book['title'] ?></td>
                     <td><?php echo $book['author'] ?></td>
-                    <td><?php echo $book['price'] ?></td>
+                    <td><?php echo number_format($book['price'], 0, '.', '.') ?> đ</td>
                     <td><img src="../public/admin/uploads/<?php echo explode(',', $book['main_image'])[0]; ?>" alt=""></td>
                     <td><?php echo date('d/m/Y', strtotime($book['publish_date'])) ?></td>
                     <td><?php echo $book['publisher'] ?></td>
@@ -68,7 +68,7 @@ if (isset($message)) { ?>
                     <td><?php echo $inventory['book_id'] ?></td>
                     <td><?php echo date('d-m-Y', strtotime($inventory['purchase_date'])) ?></td>
                     <td><?php echo $inventory['total'] ?></td>
-                    <td><?php echo number_format($inventory['price'], 0, '.', '.') ?></td>
+                    <td><?php echo number_format($inventory['price'], 0, '.', '.') ?> đ</td>
                     <td><?php echo $inventory['migrate_quantity'] ?></td>
                 </tr>
             <?php } ?>

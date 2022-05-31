@@ -247,9 +247,9 @@
                         if (Number.isInteger(addressId)) {
                             fetch(`index.php?controller=order&action=createOrder&addressId=${addressId}&payment=paypal`)
                                 .then(response => response.json())
-                                .then(() => {
+                                .then((result) => {
                                     alert('Bạn đã đặt hàng thành công!');
-                                    location.href = 'index.php';
+                                    location.href = `http://localhost/bookstore-cnpm/account/order/${result}`;
                                 })
                         }
                     });
