@@ -158,8 +158,8 @@
             <!-- <a href="#bookremain" class="btn">View All</a> -->
             <form action="" id="#bookremain">
                 <div class="form-group">
-                    <label for="">Thang</label>
                     <input type="number" placeholder="Nhap thang">
+                    <button>submit</button>
                 </div>
             </form>
         </div>

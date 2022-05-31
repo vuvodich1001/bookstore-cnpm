@@ -30,7 +30,7 @@
                     <td><?php echo $order['line1'] . ', ' . $order['line2'] . ', ' . $order['city'] ?></td>
                     <td><?php echo $order['phone'] ?></td>
                     <td><?php echo $order['payment_method'] ?></td>
-                    <td><?php echo number_format($order['total'], 0, '.', '.') ?> đ</td>
+                    <td><?php echo number_format($order['total'], 0, '.', '.') ?>đ</td>
                     <td class="<?= $textColors[$order['status']] ?> order-status-<?php echo $order['order_id'] ?>"><?php echo $order['status'] ?></td>
                     <td><?php echo number_format($order['paid'], 0, '.', '.') ?> đ</td>
                     <td><?php echo number_format($order['debt'], 0, '.', '.') ?> đ</td>

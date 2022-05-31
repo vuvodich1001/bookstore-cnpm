@@ -58,4 +58,9 @@ class OrderController extends BaseController {
         $this->orderModel->createBill($orderId, $paid, $debt);
         echo json_encode(1);
     }
+    public function searchOrder() {
+        $name = $_GET['name'];
+        $orders = $this->orderModel->searchOrder($name);
+        echo json_encode($orders);
+    }
 }

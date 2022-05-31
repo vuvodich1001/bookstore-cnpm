@@ -100,4 +100,18 @@ class OrderModel extends BaseModel {
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['orderId' => $orderId, 'paid' => $paid, 'debt' => $debt]);
     }
+    public function searchOrder($name) {
+        $sql = "select *
+                from book_order
+                where first_name like :name or last_name like :name or status like :name
+                order by status desc";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['name' => '%' . $name . '%']);
+        $orders = [];
+        while ($row = $stmt->fetch()) {
+            $row['order_date'] = date('d/m/Y', strtotime($row['order_date']));
+            $orders[] = $row;
+        }
+        return $orders;
+    }
 }
