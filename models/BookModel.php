@@ -5,6 +5,7 @@
 class BookModel extends BaseModel {
     const TABLE = 'book';
     const TABLE_FAVOURITE = 'favourite_book';
+
     public function getAll($select = ['*'], $orderBy = [], $limit = 15) {
         return $this->all(self::TABLE, $select, $orderBy, $limit);
     }
