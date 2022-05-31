@@ -14,4 +14,10 @@ class CustomerController extends BaseController {
         $roles = $this->getUserModel()->getAllRoleByUserId($this->userId);
         return $this->view('admin.customers.show', ['customers' => $customers, 'roles' => $roles]);
     }
+
+    public function getCustomerByOrderId() {
+        $id = $_GET['id'];
+        $customer = $this->customerModel->getCustomerByOrderId($id);
+        echo json_encode($customer);
+    }
 }

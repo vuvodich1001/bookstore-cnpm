@@ -50,4 +50,12 @@ class OrderController extends BaseController {
         ];
         $this->orderModel->changeStatus($data);
     }
+
+    public function createBill() {
+        $orderId = $_POST['orderId'];
+        $paid = $_POST['paid'];
+        $debt = $_POST['debt'];
+        $this->orderModel->createBill($orderId, $paid, $debt);
+        echo json_encode(1);
+    }
 }

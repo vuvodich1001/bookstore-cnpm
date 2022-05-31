@@ -1,5 +1,6 @@
 <?php
 include '../core/Database.php';
+include '../core/Constant.php';
 include '../models/BaseModel.php';
 include '../controllers/admin/BaseController.php';
 $request = '';

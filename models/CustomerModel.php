@@ -47,6 +47,13 @@ class CustomerModel extends BaseModel {
         return $address;
     }
 
+    public function getCustomerByOrderId($id) {
+        $sql = "select * from customer c join book_order b on c.customer_id = b.customer_id where order_id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch();
+    }
+
     public function createNewCustomerAddress($data) {
         $this->create(self::TABLE_ADDRESS, $data);
     }

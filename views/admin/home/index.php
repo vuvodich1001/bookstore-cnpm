@@ -111,6 +111,89 @@
             </tbody>
         </table>
     </div>
+    <div class="table-control">
+        <div class="action">
+            <h2>Công Nợ khách hàng</h2>
+            <form action="index?controller=home&action=dff" id="#debit" method="get">
+                <div class="form-group">
+                    <input type="date" name="date" placeholder="Nhap thang/name">
+                    <button>submit</button>
+                </div>
+            </form>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Nợ Đầu</th>
+                    <th>Phát Sinh</th>
+                    <th>Nợ cuối</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="content-body">
+                <?php
+                foreach ($reviews as $review) {
+                ?>
+                    <tr>
+                        <td><?php echo $review['customer_id'] ?></td>
+                        <td><?php echo $review['book_id'] ?></td>
+                        <td><?php echo $review['headline'] ?></td>
+                        <td><?php echo $review['rating'] ?> <i class="far fa-star"></i></td>
+                        <td>10000</td>
+                        <td>
+                            <a href="" class="btn-delete-review" review-id="<?php echo $review['review_id'] ?>"><i class="fas fa-trash-alt"></i></a>
+                            <a href="" class="btn-update-review" review-id="<?php echo $review['review_id'] ?>"><i class="fas fa-edit"></i></a>
+                            <a href="" class="btn-change-status" review-id="<?php echo $review['review_id'] ?>"><i class="far fa-check-circle"></i></a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-control">
+        <div class="action">
+            <h2>Báo cáo tồn</h2>
+            <!-- <a href="#bookremain" class="btn">View All</a> -->
+            <form action="" id="#bookremain">
+                <div class="form-group">
+                    <label for="">Thang</label>
+                    <input type="number" placeholder="Nhap thang">
+                </div>
+            </form>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book</th>
+                    <th>Tồn đầu</th>
+                    <th>Phát sinh</th>
+                    <th>Tồn cuối</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="content-body">
+                <?php
+                foreach ($reviews as $review) {
+                ?>
+                    <tr>
+                        <td><?php echo $review['customer_id'] ?></td>
+                        <td><?php echo $review['book_id'] ?></td>
+                        <td><?php echo $review['headline'] ?></td>
+                        <td><?php echo $review['rating'] ?> <i class="far fa-star"></i></td>
+                        <td>1000</td>
+                        <td>
+                            <a href="" class="btn-delete-review" review-id="<?php echo $review['review_id'] ?>"><i class="fas fa-trash-alt"></i></a>
+                            <a href="" class="btn-update-review" review-id="<?php echo $review['review_id'] ?>"><i class="fas fa-edit"></i></a>
+                            <a href="" class="btn-change-status" review-id="<?php echo $review['review_id'] ?>"><i class="far fa-check-circle"></i></a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 </div>
 <div class="modal modal-overlay">
     <div class="modal-body modal-book">

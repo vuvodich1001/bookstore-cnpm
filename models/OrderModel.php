@@ -93,4 +93,11 @@ class OrderModel extends BaseModel {
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['order_id' => $id]);
     }
+
+    public function createBill($orderId, $paid, $debt) {
+        $sql = "update book_order
+         set paid = :paid, debt = :debt where order_id = :orderId";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['orderId' => $orderId, 'paid' => $paid, 'debt' => $debt]);
+    }
 }
