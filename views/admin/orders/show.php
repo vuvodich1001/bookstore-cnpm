@@ -13,6 +13,8 @@
             <th>Address</th>
             <th>Phone</th>
             <th>Payment method</th>
+            <th>Paid</th>
+            <th>Debt</th>
             <th>Total</th>
             <th>Status</th>
             <th>Order_date</th>
@@ -28,6 +30,8 @@
                     <td><?php echo $order['line1'] . ', ' . $order['line2'] . ', ' . $order['city'] ?></td>
                     <td><?php echo $order['phone'] ?></td>
                     <td><?php echo $order['payment_method'] ?></td>
+                    <td><?php echo $order['paid'] ?></td>
+                    <td><?php echo $order['debt'] ?></td>
                     <td><?php echo number_format($order['total'], 0, '.', '.') ?>đ</td>
                     <td class="<?= $textColors[$order['status']] ?> order-status-<?php echo $order['order_id'] ?>"><?php echo $order['status'] ?></td>
                     <td><?php echo date('d/m/Y', strtotime($order['order_date'])); ?></td>

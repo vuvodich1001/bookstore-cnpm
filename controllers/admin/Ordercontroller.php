@@ -50,4 +50,10 @@ class OrderController extends BaseController {
         ];
         $this->orderModel->changeStatus($data);
     }
+
+    public function searchOrder() {
+        $name = $_GET['name'];
+        $orders = $this->orderModel->searchOrder($name);
+        echo json_encode($orders);
+    }
 }
