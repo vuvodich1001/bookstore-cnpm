@@ -14,8 +14,8 @@
             'tracking' => '<i class="fas fa-parachute-box"></i>',
             'inventory' => '<i class="fas fa-warehouse"></i>',
             'discount' => '<i class="fas fa-tags"></i>',
-            'review' => '<i class="far fa-comment"></i>'
-
+            'review' => '<i class="far fa-comment"></i>',
+            'parameter' => '<i class="fab fa-whmcs"></i>'
         ] ?>
         <li class="sidebar-item"><a href=""><i class="fas fa-table"></i>DashBoard</a></li>
         <?php foreach ($roles as $role) : ?>
