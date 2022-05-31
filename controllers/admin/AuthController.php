@@ -23,6 +23,6 @@ class AuthController extends BaseController {
 
     public function adminLogout() {
         session_destroy();
-        header('location://localhost/mvc-php/admin');
+        header('location://localhost/bookstore-cnpm/admin');
     }
 }

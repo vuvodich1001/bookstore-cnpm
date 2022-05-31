@@ -13,6 +13,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Gender</th>
+            <th>Debt</th>
             <th>register_date</th>
             <th>Action</th>
         </thead>
@@ -26,6 +27,7 @@
                     <td><?php echo $customer['email'] ?></td>
                     <td><?php echo $customer['phone'] ?></td>
                     <td><?php echo $customer['gender'] ?></td>
+                    <td><?php echo number_format($customer['debt'], 0, '.', '.') ?> đ</td>
                     <td><?php echo date('d/m/Y', strtotime($customer['register_date'])); ?></td>
                     <td><a href="" class="btn-delete-customer" customer-id="<?php echo $customer['customer_id'] ?>"><i class="fas fa-trash-alt"></i></a>
                         <a href="" class="btn-update-customer" customer-id="<?php echo $customer['customer_id'] ?>"><i class="fas fa-edit"></i></a>

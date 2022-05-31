@@ -10,7 +10,7 @@ class CustomerController extends BaseController {
     }
 
     public function index() {
-        $customers = $this->customerModel->getAll();
+        $customers = $this->customerModel->getAllCustomerWithDebt();
         $roles = $this->getUserModel()->getAllRoleByUserId($this->userId);
         return $this->view('admin.customers.show', ['customers' => $customers, 'roles' => $roles]);
     }

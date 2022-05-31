@@ -65,9 +65,12 @@ function createBill(orderId, type) {
     modal[1].classList.remove('modal-active');
     let formData = new FormData();
     if (totalDebt > 0) {
+      if (paymentPaid.value > totalDebt) {
+        alert('Số tiền trả vượt quá số tiền nợ');
+        return;
+      }
       let debt = Number(totalDebt) - Number(paymentPaid.value);
       let paid = Number(totalPaid) + Number(paymentPaid.value);
-      console.log(paid);
       formData.append('debt', debt);
       formData.append('paid', paid);
     } else {

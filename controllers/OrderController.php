@@ -49,6 +49,16 @@ class OrderController extends BaseController {
                 return;
             }
         }
+        // Check parameter
+        foreach ($_SESSION['cart'] as $cart) {
+            $bookId = $cart['book']['book_id'];
+            $quantity = $cart['quantity'];
+            $check = $this->orderModel->checkRemainMoneyAndBookQuantity($customerId, $bookId, $quantity);
+            if ($check != 1) {
+                echo json_encode($check);
+                return;
+            }
+        }
 
         // order fee
         // data from $_SESSION['order']

@@ -3,6 +3,7 @@ class OrderModel extends BaseModel {
     const TABLE_ORDER = 'book_order';
     const TABLE_ORDER_DETAIL = 'order_detail';
     const TABLE_CUSTOMER_ADDRESS = 'customer_address';
+    const TABLE_BOOK = 'BOOK';
 
     public function getAll($select = ['*'], $orderBy = [], $limit = 30) {
         return $this->all(self::TABLE_ORDER, $select, $orderBy, $limit);
@@ -113,5 +114,29 @@ class OrderModel extends BaseModel {
             $orders[] = $row;
         }
         return $orders;
+    }
+
+    public function checkRemainMoneyAndBookQuantity($customerId, $bookId, $quantity) {
+        $sql = "select sum(debt) as debt from customer c join book_order b on c.customer_id = b.customer_id
+        where c.customer_id = :customerId";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['customerId' => $customerId]);
+        $debt = $stmt->fetch()['debt'];
+
+        // $sql = "select current_quantity from book where book_id = :bookId";
+        // $stmt = $this->db->prepare($sql);
+        // $stmt->execute(['bookId' => $bookId]);
+        // $debt = $stmt->fetch()['current'];
+        $book = $this->find(self::TABLE_BOOK, $bookId);
+        $bookQuantityRemain = $book['current_quantity'] - $quantity;
+
+        if ($debt > $GLOBALS['MAX_DEBT']) {
+            return 'Số tiền nợ của bạn vượt quá ' . $GLOBALS['MAX_DEBT'];
+        }
+        if ($bookQuantityRemain < $GLOBALS['MIN_CURRENT_BOOK']) {
+            return 'Số tiền sách tồn còn ' . $bookQuantityRemain . ' không đủ để mua hàng';
+        }
+
+        return 1;
     }
 }

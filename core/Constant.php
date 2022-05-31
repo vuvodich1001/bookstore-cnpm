@@ -7,5 +7,5 @@ $data = [];
 while ($row = $result->fetch()) {
     $code = $row['code'];
     $value = $row['value'];
-    $$code = $value;
+    $GLOBALS[$code] = $value;
 }
