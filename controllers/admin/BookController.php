@@ -32,7 +32,7 @@ class BookController extends BaseController {
 
     // upload 1 files
     // private function insertFile($selector) {
-    //     $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/mvc-php/public/admin/uploads/';
+    //     $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/bookstore-cnpm/public/admin/uploads/';
     //     $file_error = $_FILES[$selector]['error'];
     //     if ($file_error == UPLOAD_ERR_OK) {
     //         $tmp_name = $_FILES[$selector]['tmp_name'];
@@ -45,7 +45,7 @@ class BookController extends BaseController {
     // }
     // uploads lots of file
     private function insertFile($error, $tempName, $name) {
-        $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/mvc-php/public/admin/uploads/';
+        $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/bookstore-cnpm/public/admin/uploads/';
         if ($error == UPLOAD_ERR_OK) {
             $name = basename($name);
             if (!file_exists($uploads_dir . $name))
@@ -98,7 +98,7 @@ class BookController extends BaseController {
 
     public function updateBook() {
         $id = $_GET['id'];
-        $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/mvc-php/public/admin/uploads/';
+        $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/bookstore-cnpm/public/admin/uploads/';
         $existBook = $this->bookModel->getById($id);
         // remove exist image
         $bookImages = explode(',', $existBook['main_image']);
@@ -150,7 +150,7 @@ class BookController extends BaseController {
 
     public function deleteBook() {
         $id = $_GET['id'];
-        $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/mvc-php/public/admin/uploads/';
+        $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '/bookstore-cnpm/public/admin/uploads/';
         $image = $this->bookModel->getById($id)['main_image'];
         $this->bookModel->deleteBook($id);
         unlink($uploads_dir . $image);

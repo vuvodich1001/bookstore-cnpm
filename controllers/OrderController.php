@@ -55,7 +55,7 @@ class OrderController extends BaseController {
             $quantity = $cart['quantity'];
             $checkQuantity = $this->orderModel->checkRemainBookQuantity($customerId, $bookId, $quantity);
             if ($checkQuantity != 1) {
-                echo json_encode($check);
+                echo json_encode($checkQuantity);
                 return;
             }
         }
@@ -73,7 +73,9 @@ class OrderController extends BaseController {
             'shipping_fee' => $shippingFee,
             'payment_method' => $paymentMethod,
             'discount' => $discount,
-            'status' => $paymentMethod == 'COD' ? 'Đang xử lí' : 'Đã thanh toán'
+            'status' => $paymentMethod == 'COD' ? 'Đang xử lí' : 'Đã thanh toán',
+            'paid' => $paymentMethod == 'PAYPAL' ? $total : 0,
+            'debt' => 0
         ];
 
         // order detail
