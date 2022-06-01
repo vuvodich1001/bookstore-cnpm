@@ -156,7 +156,7 @@ function fetchDataOrder(data = {}, id) {
       if (posts.length != 0) {
         const contentBody = document.querySelector('.content-body');
         const order = posts.map((order) => {
-          let color;
+          let color = '';
           if (order['status'] == 'Đang xử lí') color = '#17a2b8';
           else if (order['status'] == 'Giao hàng thành công') color = '#28a745';
           else if (order['status'] == 'Đang giao hàng') color = '#17a2b8';
@@ -168,103 +168,98 @@ function fetchDataOrder(data = {}, id) {
             order['status'] == 'Đã thanh toán'
           )
             return `
-                            <tr>
-                                <td>${order['order_id']}</td>
-                                <td>${order['first_name']} ${
-              order['last_name']
-            }</td>
-                                <td>${order['line1']}, ${order['line2']}, ${
+                  <tr>
+                      <td>${order['order_id']}</td>
+                      <td>${order['first_name']} ${order['last_name']}</td>
+                      <td>${order['line1']}, ${order['line2']}, ${
               order['city']
             } </td>
-                                <td>${order['phone']} </td>
-                                <td>${order['payment_method']}</td>
-                                <td>${order['total']}đ</td>
-                                <td style="color: ${color}" class="order-status-${
+                      <td>${order['phone']} </td>
+                      <td>${order['payment_method']}</td>
+                      <td>${order['total']}đ</td>
+                      <td style="color: ${color}" class="order-status-${
               order.order_id
             }">${order['status']}</td>
-                                <td>${order['paid']}</td>
-                                <td>${order['debt']}</td>
-                                <td>${order['order_date']}</td>
-                                <td>
-                                    <a href="" class="btn-detail-order" order-id="${
-                                      order['order_id']
-                                    }"><i class="fas fa-info-circle"></i></a>
-                                    ${
-                                      order['debt'] > 0
-                                        ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}"><i class="fa-solid fa-hand-holding-dollar"></i></a>`
-                                        : ''
-                                    }
-                                    <a href="" class="btn-success-status" order-id="${
-                                      order['order_id']
-                                    }"><i class="far fa-check-circle"></i></a>
-                                    <a href="" class="btn-shipping-status" order-id="${
-                                      order['order_id']
-                                    }"><i class="fas fa-shipping-fast"></i></a>
-                                </td>
-                            </tr>
+                      <td>${order['paid']}</td>
+                      <td>${order['debt']}</td>
+                      <td>${order['order_date']}</td>
+                      <td>
+                          <a href="" class="btn-detail-order" order-id="${
+                            order['order_id']
+                          }"><i class="fas fa-info-circle"></i></a>
+                          ${
+                            order['debt'] > 0
+                              ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}">
+                              <i class="fa-solid fa-hand-holding-dollar"></i></a>`
+                              : ''
+                          }
+                          <a href="" class="btn-success-status" order-id="${
+                            order['order_id']
+                          }"><i class="far fa-check-circle"></i></a>
+                          <a href="" class="btn-shipping-status" order-id="${
+                            order['order_id']
+                          }"><i class="fas fa-shipping-fast"></i></a>
+                      </td>
+                  </tr>
                         `;
           else if (order['status'] == 'Đang giao hàng') {
             return `
-                            <tr>
-                                <td>${order['order_id']}</td>
-                                <td>${order['first_name']} ${
-              order['last_name']
-            }</td>
-                                <td>${order['line1']}, ${order['line2']}, ${
+                <tr>
+                    <td>${order['order_id']}</td>
+                    <td>${order['first_name']} ${order['last_name']}</td>
+                    <td>${order['line1']}, ${order['line2']}, ${
               order['city']
             } </td>
-                                <td>${order['phone']} </td>
-                                <td>${order['payment_method']}</td>
-                                <td>${order['total']}đ</td>
-                                <td style="color: ${color}" class="order-status-${
+                    <td>${order['phone']} </td>
+                    <td>${order['payment_method']}</td>
+                    <td>${order['total']}đ</td>
+                    <td style="color: ${color}" class="order-status-${
               order.order_id
             }">${order['status']}</td>
-                                <td>${order['paid']}</td>
-                                <td>${order['debt']}</td>
-                                <td>${order['order_date']}</td>
-                                <td>
-                                    <a href="" class="btn-detail-order" order-id="${
-                                      order['order_id']
-                                    }"><i class="fas fa-info-circle"></i></a>
-                                    ${
-                                      order['debt'] > 0
-                                        ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}"><i class="fa-solid fa-hand-holding-dollar"></i></a>`
-                                        : ''
-                                    }
-                                    <a href="" class="btn-success-status" order-id="${
-                                      order['order_id']
-                                    }"><i class="far fa-check-circle"></i></a>
-                                </td>
-                            </tr>
-                        `;
+                    <td>${order['paid']}</td>
+                    <td>${order['debt']}</td>
+                    <td>${order['order_date']}</td>
+                    <td>
+                        <a href="" class="btn-detail-order" order-id="${
+                          order['order_id']
+                        }"><i class="fas fa-info-circle"></i></a>
+                        ${
+                          order['debt'] > 0
+                            ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}"><i class="fa-solid fa-hand-holding-dollar"></i></a>`
+                            : ''
+                        }
+                        <a href="" class="btn-success-status" order-id="${
+                          order['order_id']
+                        }"><i class="far fa-check-circle"></i></a>
+                    </td>
+                </tr>
+            `;
           }
           return `
-                        <tr>
-                          <td>${order['order_id']}</td>
-                          <td>${order['first_name']} ${order['last_name']}</td>
-                          <td>${order['line1']}, ${order['line2']}, ${
-            order['city']
-          } </td>
-                          <td>${order['phone']} </td>
-                          <td>${order['payment_method']}</td>
-                          <td>${order['total']}đ</td>
-                          <td style="color: ${color}" class="order-status-${
+          <tr>
+            <td>${order['order_id']}</td>
+            <td>${order['first_name']} ${order['last_name']}</td>
+            <td>${order['line1']}, ${order['line2']}, ${order['city']} </td>
+            <td>${order['phone']} </td>
+            <td>${order['payment_method']}</td>
+            <td>${order['total']}đ</td>
+            <td style="color: ${color}" class="order-status-${
             order.order_id
           }">${order['status']}</td>
-                          <td>${order['paid']}</td>
-                          <td>${order['debt']}</td>
-                          <td>${order['order_date']}</td>
-                            <td>
-                                <a href="" class="btn-detail-order" order-id="${
-                                  order['order_id']
-                                }"><i class="fas fa-info-circle"></i></a>
-                                ${
-                                  order['debt'] > 0
-                                    ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}"><i class="fa-solid fa-hand-holding-dollar"></i></a>`
-                                    : ''
-                                }
-                            </td>
-                        </tr>
+            <td>${order['paid']}</td>
+            <td>${order['debt']}</td>
+            <td>${order['order_date']}</td>
+              <td>
+                  <a href="" class="btn-detail-order" order-id="${
+                    order['order_id']
+                  }"><i class="fas fa-info-circle"></i></a>
+                  ${
+                    order['debt'] > 0
+                      ? `<a href="" class="btn-success-status btn-bill" order-id="${order.order_id}}"><i class="fa-solid fa-hand-holding-dollar"></i></a>`
+                      : ''
+                  }
+              </td>
+          </tr>
                     `;
         });
         contentBody.innerHTML = order.join('');

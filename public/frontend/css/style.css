@@ -816,6 +816,25 @@ main {
   text-decoration: none;
   text-align: center;
 }
+
+.cart-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--white-color);
+  padding: 20px;
+}
+.cart-empty i {
+  font-size: 100px;
+  color: rgb(130, 126, 130);
+}
+.cart-empty span {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 20px;
+  color: var(--main-color);
+}
 /* table */
 
 table {

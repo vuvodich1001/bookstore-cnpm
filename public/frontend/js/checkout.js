@@ -87,9 +87,10 @@ function checkout() {
               .then((response) => response.json())
               .then((result) => {
                 if (result == 1) alert('Địa chỉ giao hàng đã tồn tại!!!');
-                else if (typeof result == 'string');
-                else {
-                  // alert('Bạn đã đặt hàng thành công!');
+                else if (typeof result == 'string') {
+                  alert(result);
+                } else {
+                  alert('Bạn đã đặt hàng thành công!');
                   location.href = `http://localhost/bookstore-cnpm/account/order/${result}`;
                 }
               });

@@ -116,19 +116,10 @@ class OrderModel extends BaseModel {
         return $orders;
     }
 
-    public function checkRemainMoneyAndBookQuantity($customerId, $bookId, $quantity) {
-        $sql = "select sum(debt) as debt from customer c join book_order b on c.customer_id = b.customer_id
-        where c.customer_id = :customerId";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(['customerId' => $customerId]);
-        $debt = $stmt->fetch()['debt'];
-
+    public function checkRemainBookQuantity($customerId, $bookId, $quantity) {
         $book = $this->find(self::TABLE_BOOK, $bookId);
         $bookQuantityRemain = $book['current_quantity'] - $quantity;
 
-        if ($debt > $GLOBALS['MAX_DEBT']) {
-            return 'Số tiền nợ của bạn vượt quá ' . number_format($GLOBALS['MAX_DEBT'], 0, '.', '.') . ' đ!!!';
-        }
         if ($bookQuantityRemain < $GLOBALS['MIN_CURRENT_BOOK']) {
             return 'Số lượng sách tồn còn lại không đủ để mua hàng!!!';
         }

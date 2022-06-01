@@ -53,8 +53,8 @@ class OrderController extends BaseController {
         foreach ($_SESSION['cart'] as $cart) {
             $bookId = $cart['book']['book_id'];
             $quantity = $cart['quantity'];
-            $check = $this->orderModel->checkRemainMoneyAndBookQuantity($customerId, $bookId, $quantity);
-            if ($check != 1) {
+            $checkQuantity = $this->orderModel->checkRemainBookQuantity($customerId, $bookId, $quantity);
+            if ($checkQuantity != 1) {
                 echo json_encode($check);
                 return;
             }
@@ -86,6 +86,8 @@ class OrderController extends BaseController {
             ];
         }
         $this->orderModel->createOrder($shippingAddress, $orderFee, $orderDetail, $customerId, $check);
+
+        //remove session
         unset($_SESSION['order']);
         unset($_SESSION['cart']);
         unset($_SESSION['voucher']);

@@ -39,7 +39,7 @@
                     <td><?php echo date('d/m/Y', strtotime($order['order_date'])); ?></td>
                     <td>
                         <a href="" class="btn-detail-order" order-id="<?php echo $order['order_id'] ?>"><i class="fas fa-info-circle"></i></a>
-                        <?php if ($order['debt'] > 0 || $order['paid'] == 0) : ?>
+                        <?php if (($order['debt'] > 0 || $order['paid'] == 0) && $order['status'] != 'Đã hủy') : ?>
                             <a href="" class="btn-success-status btn-bill" order-id="<?php echo $order['order_id'] ?>"><i class="fa-solid fa-hand-holding-dollar"></i></a>
                         <?php endif ?>
                         <?php if ($order['status'] == 'Đang xử lí' || $order['status'] == 'Đã thanh toán') : ?>
