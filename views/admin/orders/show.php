@@ -9,6 +9,7 @@
     <table>
         <thead>
             <th>#</th>
+            <th>CusId</th>
             <th>Name</th>
             <th>Address</th>
             <th>Phone</th>
@@ -26,8 +27,9 @@
             ?>
                 <tr>
                     <td><?php echo $order['order_id'] ?></td>
+                    <td><?php echo $order['customer_id'] ?></td>
                     <td><?php echo $order['first_name'] . ' ' . $order['last_name'] ?></td>
-                    <td><?php echo $order['line1'] . ', ' . $order['line2'] . ', ' . $order['city'] ?></td>
+                    <td style="max-width: 250px;"><?php echo $order['line1'] . ', ' . $order['line2'] . ', ' . $order['city'] ?></td>
                     <td><?php echo $order['phone'] ?></td>
                     <td><?php echo $order['payment_method'] ?></td>
                     <td><?php echo number_format($order['total'], 0, '.', '.') ?>đ</td>
