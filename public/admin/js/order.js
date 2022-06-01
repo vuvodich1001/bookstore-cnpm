@@ -61,11 +61,12 @@ function createBill(orderId, type) {
       totalDebt = result.debt;
       totalPaid = result.paid;
     });
-  btnSubmitBill.addEventListener('click', (e) => {
+  btnSubmitBill.onclick = function (e) {
     modal[1].classList.remove('modal-active');
     let formData = new FormData();
     if (totalDebt > 0) {
-      if (paymentPaid.value > totalDebt) {
+      if (Number(paymentPaid.value) > totalDebt) {
+        console.log(totalDebt, paymentPaid.value);
         alert('Số tiền trả vượt quá số tiền nợ');
         return;
       }
@@ -74,7 +75,6 @@ function createBill(orderId, type) {
       formData.append('debt', debt);
       formData.append('paid', paid);
     } else {
-      alert(paymentPaid.value, total);
       formData.append('paid', paymentPaid.value);
       formData.append(
         'debt',
@@ -85,11 +85,18 @@ function createBill(orderId, type) {
     fetch('index.php?controller=order&action=createBill', {
       method: 'POST',
       body: formData,
-    }).then(() => {
-      alert(`Thanh toán cho khách hàng có orderId = ${orderId}`);
-      location.href = 'http://localhost/bookstore-cnpm/admin/order';
-    });
-  });
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (typeof result == 'object') {
+          alert(`Số tiền nợ của khách hàng vượt quá ${result.max}`);
+        } else {
+          console.log(result);
+          alert(`Thanh toán cho khách hàng có orderId = ${orderId}`);
+          location.href = 'http://localhost/bookstore-cnpm/admin/order';
+        }
+      });
+  };
 }
 
 function changeStatus() {

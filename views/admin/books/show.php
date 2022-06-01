@@ -29,7 +29,7 @@
                     <td><?php echo $book['book_id'] ?></td>
                     <td><?php echo $book['title'] ?></td>
                     <td><?php echo $book['author'] ?></td>
-                    <td><?php echo $book['price'] ?></td>
+                    <td><?php echo number_format($book['price'], 0, '.', '.') ?>đ</td>
                     <td><img src="../public/admin/uploads/<?php echo explode(',', $book['main_image'])[0]; ?>" alt=""></td>
                     <td>
                         <div><?php echo $book['description'] ?></div>
@@ -78,7 +78,7 @@
 
                 <div class="form-group">
                     <label for="">Price</label>
-                    <input type="text" name="price" id="price">
+                    <input type="text" name="price" id="price" value=0 disabled>
                 </div>
             </div>
 

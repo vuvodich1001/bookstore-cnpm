@@ -2,10 +2,13 @@
 
 class OrderController extends BaseController {
     private $orderModel;
+    private $customerModel;
     public function __construct() {
         parent::__construct();
         $this->loadModel('OrderModel');
+        $this->loadModel('customerModel');
         $this->orderModel =  new OrderModel();
+        $this->customerModel =  new CustomerModel();
         $this->userId = $_SESSION['user']['user_id'];
     }
 
@@ -55,6 +58,16 @@ class OrderController extends BaseController {
         $orderId = $_POST['orderId'];
         $paid = $_POST['paid'];
         $debt = $_POST['debt'];
+        $customer = $this->customerModel->getCustomerByOrderId($orderId);
+        $totalDebt = $this->customerModel->getTotalDebtByCustomerId($customer['customer_id']);
+
+        $totalDebt += $debt;
+
+        if ($totalDebt > $GLOBALS['MAX_DEBT'] || $debt > $GLOBALS['MAX_DEBT']) {
+            echo json_encode(['status' => false, 'max' => $GLOBALS['MAX_DEBT']]);
+            return;
+        }
+
         $this->orderModel->createBill($orderId, $paid, $debt);
         echo json_encode(1);
     }

@@ -79,6 +79,12 @@ class CustomerModel extends BaseModel {
         return $stmt->fetch();
     }
 
+    public function getTotalDebtByCustomerId($id) {
+        $sql = "select sum(debt) as total from customer c join book_order b on c.customer_id = b.customer_id where c.customer_id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch()['total'];
+    }
     public function createNewCustomerAddress($data) {
         $this->create(self::TABLE_ADDRESS, $data);
     }

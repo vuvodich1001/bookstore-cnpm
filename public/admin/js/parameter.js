@@ -5,10 +5,7 @@ function validateParameter() {
   if (formParameter) {
     Validator({
       form: '#form-parameter',
-      rules: [
-        isRequired('#code'),
-        isRequired('#value'),
-      ],
+      rules: [isRequired('#code'), isRequired('#value')],
       onSubmit(data) {
         if (formParameter.getAttribute('name') == 'create') {
           fetchDataParameter('post', {
@@ -104,7 +101,9 @@ function deleteParameter() {
 }
 
 async function getAllParameter() {
-  const parameters = await fetch('index.php?controller=parameter&action=getAllParameter')
+  const parameters = await fetch(
+    'index.php?controller=parameter&action=getAllParameter'
+  )
     .then((response) => response.json())
     .then((posts) => {
       return posts;
@@ -127,7 +126,7 @@ function updateParameter() {
             if (parameter.parameter_id == parameterId) {
               let code = document.querySelector('#code');
               let value = document.querySelector('#value');
-              let enable= document.querySelector('#enable');
+              let enable = document.querySelector('#enable');
               code.value = parameter.code;
               value.value = parameter.value;
               enable.value = parameter.enable;
@@ -144,7 +143,6 @@ function searchParameter() {
   let name = document.querySelector('.action h2');
   let inputSearch = document.querySelector('#search');
   if (inputSearch && name) {
-    console.log(name);
     inputSearch.addEventListener('input', (e) => {
       if (name.innerText.toLowerCase() == 'parameter') {
         fetchDataParameter('search', {}, inputSearch.value);

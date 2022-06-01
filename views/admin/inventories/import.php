@@ -22,20 +22,22 @@
                 </div>
                 <div class="form-group">
                     <label for="">BookId</label>
-                    <input type="text" name="book_id" id="book_id" placeholder="migrate_quantity">
-                </div>
-                <div class="form-group">
-                    <label for="">Total</label>
-                    <input type="text" name="total" id="total">
+                    <input type="text" name="book_id" id="book_id">
                 </div>
                 <div class="form-group">
                     <label for="">Price</label>
-                    <input type="text" name="price" id="price">
+                    <input type="number" name="price" id="price-import">
                 </div>
                 <div class="form-group">
                     <label for="">Quantity</label>
-                    <input type="number" name="migrate_quantity" placeholder="migrate_quantity" id="migrate_quantity" min="<?php echo $GLOBALS['MIN_MIGRATE'] ?>">
+                    <input type="number" name="migrate_quantity" placeholder="migrate_quantity" id="migrate-quantity" min="<?php echo $GLOBALS['MIN_MIGRATE'] ?>">
                 </div>
+
+                <div class="form-group">
+                    <label for="">Total</label>
+                    <input type="text" name="total" id="total-import">
+                </div>
+
                 <button class="btn btn-import">Import</button>
 
                 <div class="search-result">
