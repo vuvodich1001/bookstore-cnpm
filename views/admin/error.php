@@ -35,7 +35,7 @@
     <div class="app">
         <h1>Bạn không có quyền vào vào thư mục này</h1>
         <h1>Mời bạn quay về trang chủ nhé!!!</h1>
-        <a href="http://localhost/mvc-php/admin/">Trang chủ</a>
+        <a href="http://localhost/bookstore-cnpm/admin/">Trang chủ</a>
     </div>
 </body>
 
